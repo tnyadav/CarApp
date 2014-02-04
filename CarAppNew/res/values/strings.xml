@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CarApp</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+ <color name="mairoon">#611414</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="background">#00394C</color>
+</resources>

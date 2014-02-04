@@ -1,0 +1,2225 @@
+<style>
+.kksir{ background:url(images/arrow_down_green1.png) #0033CC;
+        height:64px;
+		width:64px;
+		}
+.kksir:hover{background:#3399CC;}
+</style>
+<script language="javascript" type="text/javascript">
+function callFromActivity(){
+    alert("Hello! I am an alert box!");
+  
+ }
+function callFromActivity1(){
+  //  android.choosColor();
+   
+var x;
+var r=confirm("Press a button!");
+if (r==true)
+  {
+  x="You pressed OK!";
+  }
+else
+  {
+  x="You pressed Cancel!";
+  }
+document.getElementById("demo").innerHTML=x;
+}
+  
+ 
+function validation()
+{
+
+var tyer_condition_lf=document.forms["myform"]["tyer_condition_lf"].value;
+var tyre_size_lf=document.forms["myform"]["tyre_size_lf"].value;
+var tyre_depth_lfx=document.forms["myform"]["tyre_depth_lfx"].value;
+var tyre_depth_lfy=document.forms["myform"]["tyre_depth_lfy"].value;
+var brake_pad_lf=document.forms["myform"]["brake_pad_lf"].value;
+var brake_disk_lf=document.forms["myform"]["brake_disk_lf"].value;
+var shocker_lf=document.forms["myform"]["shocker_lf"].value;
+var wheel_lf=document.forms["myform"]["wheel_lf"].value;
+var physical_damage_lf=document.forms["myform"]["physical_damage_lf"].value;
+
+var tyer_condition_lb=document.forms["myform"]["tyer_condition_lb"].value;
+var tyre_size_lb=document.forms["myform"]["tyre_size_lb"].value;
+var tyre_depth_lbx=document.forms["myform"]["tyre_depth_lbx"].value;
+var tyre_depth_lby=document.forms["myform"]["tyre_depth_lby"].value;
+var brake_pad_lb=document.forms["myform"]["brake_pad_lb"].value;
+var brake_disk_lb=document.forms["myform"]["brake_disk_lb"].value;
+var shocker_lb=document.forms["myform"]["shocker_lb"].value;
+var wheel_lb=document.forms["myform"]["wheel_lb"].value;
+var physical_damage_lb=document.forms["myform"]["physical_damage_lb"].value;
+
+var tyer_condition_rf=document.forms["myform"]["tyer_condition_rf"].value;
+var tyre_size_rf=document.forms["myform"]["tyre_size_rf"].value;
+var tyre_depth_rfx=document.forms["myform"]["tyre_depth_rfx"].value;
+var tyre_depth_rfy=document.forms["myform"]["tyre_depth_rfy"].value;
+var brake_pad_rf=document.forms["myform"]["brake_pad_rf"].value;
+var brake_disk_rf=document.forms["myform"]["brake_disk_rf"].value;
+var shocker_rf=document.forms["myform"]["shocker_rf"].value;
+var wheel_rf=document.forms["myform"]["wheel_rf"].value;
+var physical_damage_rf=document.forms["myform"]["physical_damage_rf"].value;
+
+var tyer_condition_rb=document.forms["myform"]["tyer_condition_rb"].value;
+var tyre_size_rb=document.forms["myform"]["tyre_size_rb"].value;
+var tyre_depth_rbx=document.forms["myform"]["tyre_depth_rbx"].value;
+var tyre_depth_rby=document.forms["myform"]["tyre_depth_rby"].value;
+var brake_pad_rb=document.forms["myform"]["brake_pad_rb"].value;
+var brake_disk_rb=document.forms["myform"]["brake_disk_rb"].value;
+var shocker_rb=document.forms["myform"]["shocker_rb"].value;
+var wheel_rb=document.forms["myform"]["wheel_rb"].value;
+var physical_damage_rb=document.forms["myform"]["physical_damage_rb"].value;
+
+var immoblizer_f=document.forms["myform"]["immoblizer_f"].value;
+var battery_f=document.forms["myform"]["battery_f"].value;
+var physical_damage_f=document.forms["myform"]["physical_damage_f"].value;
+
+var spare_wheel_b=document.forms["myform"]["spare_wheel_b"].value;
+var lock_nut_b=document.forms["myform"]["lock_nut_b"].value;
+var physical_damage_b=document.forms["myform"]["physical_damage_b"].value;
+
+
+ android.setValueFromWabePage(tyer_condition_lf,tyre_size_lf,tyre_depth_lfx,tyre_depth_lfy,brake_pad_lf,brake_disk_lf,shocker_lf,wheel_lf,physical_damage_lf,tyer_condition_lb,tyre_size_lb,tyre_depth_lbx,tyre_depth_lby,brake_pad_lb,brake_disk_lb,shocker_lb,wheel_lb,physical_damage_lb,tyer_condition_rf,tyre_size_rf,tyre_depth_rfx,tyre_depth_rfy,brake_pad_rf,brake_disk_rf,shocker_rf,wheel_rf,physical_damage_rf,tyer_condition_rb,tyre_size_rb,tyre_depth_rbx,tyre_depth_rby,brake_pad_rb,brake_disk_rb,shocker_rb,wheel_rb,physical_damage_rb,immoblizer_f,battery_f,physical_damage_f,spare_wheel_b,lock_nut_b,physical_damage_b);
+
+}
+
+
+function takePicture_LF(){
+var picture="takePicture_LF.jpg";
+ android.takePicture(picture);
+}
+
+
+function takePicture_LB(){
+var picture="takePicture_LB.jpg";
+ android.takePicture(picture);
+}
+
+
+function takePicture_RF(){
+var picture="takePicture_RF.jpg";
+ android.takePicture(picture);
+}
+
+function takePicture_RB(){
+var picture="takePicture_RB.jpg";
+ android.takePicture(picture);
+}
+
+function takePicture_F(){
+var picture="takePicture_F.jpg";
+ android.takePicture(picture);
+}
+function takePicture_B(){
+var picture="takePicture_B.jpg";
+ android.takePicture(picture);
+}
+
+
+</script>
+
+
+<script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready( function() {
+	
+		// When site loaded, load the Popupbox First
+		loadPopupBox();
+	
+		$('#popupBoxClose').click( function() {			
+			unloadPopupBox();
+		});
+		$('#popupBoxCloseRed').click( function() {			
+			unloadPopupBox();
+		});
+		
+		$('#popupBoxClose1').click( function() {			
+			unloadPopupBox1();
+		});
+		$('#popupBoxCloseRed1').click( function() {			
+			unloadPopupBox1();
+		});
+		
+		$('#popupBoxClose_rttop').click( function() {			
+			unloadPopupBox_rttop();
+		});
+		$('#popupBoxCloseRed_rttop').click( function() {			
+			unloadPopupBox_rttop();
+		});
+		
+		$('#popupBoxClose_rttop1').click( function() {			
+			unloadPopupBox_rttop1();
+		});
+		$('#popupBoxCloseRed_rttop1').click( function() {			
+			unloadPopupBox_rttop1();
+		});
+		
+		$('#popupBoxClose_rtbot').click( function() {			
+			unloadPopupBox_rtbot();
+		});
+		$('#popupBoxCloseRed_rtbot').click( function() {			
+			unloadPopupBox_rtbot();
+		});
+		$('#popupBoxClose_rtbot1').click( function() {			
+			unloadPopupBox_rtbot1();
+		});
+		$('#popupBoxCloseRed_rtbot1').click( function() {			
+			unloadPopupBox_rtbot1();
+		});
+		$('#popupBoxClose_rftop').click( function() {			
+			unloadPopupBox_rftop();
+		});
+		$('#popupBoxCloseRed_rftop').click( function() {			
+			unloadPopupBox_rftop();
+		});
+		$('#popupBoxClose_rftop1').click( function() {			
+			unloadPopupBox_rftop1();
+		});
+		$('#popupBoxCloseRed_rftop1').click( function() {			
+			unloadPopupBox_rftop1();
+		});
+		$('#popupBoxCloseRed_rfbot').click( function() {			
+			unloadPopupBox_rftop();
+		});
+		$('#popupBoxClose_rbtop').click( function() {			
+			unloadPopupBox_rbtop();
+		});
+		$('#popupBoxCloseRed_rbbot').click( function() {			
+			unloadPopupBox_rbtop();
+		});
+		$('#popupBoxCloseRed_rbbot1').click( function() {			
+			unloadPopupBox_rbtop1();
+		});
+		$('#popupBoxClose_rbbot').click( function() {			
+			unloadPopupBox_rbtop();
+		});
+		$('#popupBoxClose_bbbot').click( function() {			
+			unloadPopupBox_bbbot();
+		});
+		
+		$('#popupBoxClose_rbbot1').click( function() {			
+			unloadPopupBox_rbtop1();
+		});
+		$('#popupBoxClose_bbbot1').click( function() {			
+			unloadPopupBox_bbbot1();
+		});
+		
+		$('#popupBoxCloseRed_bbbot').click( function() {			
+			unloadPopupBox_bbbot();
+		});
+		
+		$('#container').click( function() {
+		$('#popup_box').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container1').click( function() {
+		$('#popup_box1').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+       
+	   $('#container_rttop').click( function() {
+		$('#popup_box_rttop').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_rttop1').click( function() {
+		$('#popup_box_rttop1').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		
+		$('#container_rtbot').click( function() {
+		$('#popup_box_rtbot').fadeIn("slow");
+			$("#container_rtbot").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_rtbot1').click( function() {
+		$('#popup_box_rtbot1').fadeIn("slow");
+			$("#container_rtbot").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_rftop').click( function() {
+		$('#popup_box_rftop').fadeIn("slow");
+			$("#container_rftop").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		
+		$('#container_rftop1').click( function() {
+		$('#popup_box_rftop1').fadeIn("slow");
+			$("#container_rftop1").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		
+		$('#container_rbtop').click( function() {
+		$('#popup_box_rbtop').fadeIn("slow");
+			$("#container_rbtop").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_rbtop1').click( function() {
+		$('#popup_box_rbtop1').fadeIn("slow");
+			$("#container_rbtop1").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_bbbot').click( function() {
+		$('#popup_box_bbbot').fadeIn("slow");
+			$("#container_bbbot").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		$('#container_bbbot1').click( function() {
+		$('#popup_box_bbbot').fadeIn("slow");
+			$("#container_bbbot").css({ // this is just for style
+				"opacity": "1"  
+			}); 	
+		});
+		
+		
+		function unloadPopupBox() {	// TO Unload the Popupbox
+			$('#popup_box').fadeOut("slow");
+			$("#container").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox1() {	// TO Unload the Popupbox
+			$('#popup_box1').fadeOut("slow");
+			$("#container1").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox_rttop() {	// TO Unload the Popupbox
+			$('#popup_box_rttop').fadeOut("slow");
+			$("#container_rttop").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		function unloadPopupBox_rttop1() {	// TO Unload the Popupbox
+			$('#popup_box_rttop1').fadeOut("slow");
+			$("#container_rttop1").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		function unloadPopupBox_rtbot() {	// TO Unload the Popupbox
+			$('#popup_box_rtbot').fadeOut("slow");
+			$("#container_rtbot").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		function unloadPopupBox_rftop() {	// TO Unload the Popupbox
+			$('#popup_box_rftop').fadeOut("slow");
+			$("#container_rftop").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox_rftop1() {	// TO Unload the Popupbox
+			$('#popup_box_rftop1').fadeOut("slow");
+			$("#container_rftop1").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}
+		
+		function unloadPopupBox_rtbot1() {	// TO Unload the Popupbox
+			$('#popup_box_rtbot1').fadeOut("slow");
+			$("#container_rtbot1").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox_rbtop() {	// TO Unload the Popupbox
+			$('#popup_box_rbtop').fadeOut("slow");
+			$("#container_rbtop").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox_rbtop1() {	// TO Unload the Popupbox
+			$('#popup_box_rbtop1').fadeOut("slow");
+			$("#container_rbtop1").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		function unloadPopupBox_bbbot() {	// TO Unload the Popupbox
+			$('#popup_box_bbbot').fadeOut("slow");
+			$("#container_bbbot").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+		
+		function loadPopupBox() {	// To Load the Popupbox
+			//$('#popup_box').fadeIn("slow");
+//			$("#container").css({ // this is just for style
+//				"opacity": "0.3"  
+//			}); 		
+		}
+		/**********************************************************/
+		
+	});
+</script>
+<style type="text/css">
+/* popup_box DIV-Styles*/
+#popup_box { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box1 { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rttop { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rttop1{ 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rtbot { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rtbot1 { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rftop { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rftop1 { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rbtop { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_rbtop1 { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+#popup_box_bbbot { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:65px;  
+	width:135px;  
+	background:#FFFFFF;  
+	left: 42%;
+	top: 150px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+</style>
+<div id="popup_box">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt(), showImage()"	id="popupBoxClose" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredff(), changeDivImageAltRed()"	id="popupBoxCloseRed" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box1">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt1(), showImage()"	id="popupBoxClose1" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredfm(), changeDivImageAltRed1()"	id="popupBoxCloseRed1" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+
+<div id="popup_box_rttop">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rttop(), showImage()"	id="popupBoxClose_rttop" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredfl(), changeDivImageAltRed_rttop()"	id="popupBoxCloseRed_rttop" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rttop1">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rttop1(), showImage()"	id="popupBoxClose_rttop1" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredfsl(), changeDivImageAltRed_rttop1()"	id="popupBoxCloseRed_rttop1" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+
+<div id="popup_box_rtbot">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rtbot(), showImage()"	id="popupBoxClose_rtbot" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredbsl(), changeDivImageAltRed_rtbot()"	id="popupBoxCloseRed_rtbot" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rtbot1">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rtbot1(), showImage()"	id="popupBoxClose_rtbot1" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredbl(), changeDivImageAltRed_rtbot1()"	id="popupBoxCloseRed_rtbot1" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rftop">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rftop(), showImage()"	id="popupBoxClose_rftop" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredfr(), changeDivImageAltRed_rfbot()"	id="popupBoxCloseRed_rftop" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rftop1">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rftop1(), showImage()"	id="popupBoxClose_rftop1" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredfsr(), changeDivImageAltRed_rfbot1()"	id="popupBoxCloseRed_rftop1" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rbtop">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rbtop(), showImage()"	id="popupBoxClose_rbbot" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredbsr(), changeDivImageAltRed_rbbot()"	id="popupBoxCloseRed_rbbot" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_rbtop1">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_rbtop1(), showImage()"	id="popupBoxClose_rbbot1" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredbr(), changeDivImageAltRed_rbbot1()"	id="popupBoxCloseRed_rbbot1" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+<div id="popup_box_bbbot">	<!-- OUR PopupBox DIV-->
+	
+    <td rowspan="2" colspan="2">
+		<a href="javascript:void(0)" onclick="changeDivImageAlt_bbbot(), showImage()"	id="popupBoxClose_bbbot" class="123"> <img width="64" height="64" alt="" src="images/green.png" ></a>
+           <a href="javascript:void(0)" onclick="showImageredbm(), changeDivImageAltRed_bbbot()"	id="popupBoxCloseRed_bbbot" class="456">   <img width="64" height="64" alt="" src="images/red.png"> </a>
+            
+            </td>
+            
+	
+</div>
+
+<form name="myform" id="" action="" >
+<div style="width:1096px;margin:0 auto;">
+               <div style="float:left; width:30%; text-align:right;">
+                   <div style="float:left; width:100%; margin-top:40px;">
+                     <select name="tyer_condition_lf" id="tyer_condition_lf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                    <option class="greenText">Tyre Condition</option>
+                                      <option class="redText">Tyre - Pass</option>
+                                      <option class="blueText">Tyre - Puncture</option>
+                                      <option class="blueText">Tyre - Bubble</option>
+                                      <option class="blueText">Tyre - Age</option>
+                                      <option class="blueText">Tyre - Incorrect Size</option>
+                                      <option class="blueText">Tyre - Run-flat Damage</option>
+                                      <option class="blueText">Tyre - Spare wheel used</option>
+                     </select>
+                    
+                 </div>
+				   <div style="float:left; width:100%">
+                      <input type="text" name="tyre_size_lf" id="tyre_size_lf" placeholder="Tyre Size">                     
+                 </div>
+                     <div style="float:left; width:100%">
+                  <label class="greenText">  Tyre Depth 
+                  <select name="tyre_depth_lfx" id="tyre_depth_lfx" onchange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                    <option class="greenText" value=""></option>
+                    <option class="greenText">0</option>
+                    <option class="greenText">1</option>
+                    <option class="greenText">2</option>
+                    <option class="greenText">3</option>
+                    <option class="greenText">4</option>
+                    <option class="greenText">5</option>
+                    <option class="greenText">6</option>
+                    <option class="greenText">7</option>
+                    <option class="greenText">8</option>
+                    <option class="greenText">9</option>
+                    <option class="greenText">10</option>
+                    <option class="greenText">11</option>
+                    <option class="greenText">12</option>
+                  </select>
+                  <select name="tyre_depth_lfy" id="tyre_depth_lfy" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                      <option class="greenText" value=""></option>
+                                      <option class="greenText">.0</option>
+                                      <option class="greenText">.1</option>
+                                       <option class="greenText">.2</option>
+                                        <option class="greenText">.3</option>
+                                         <option class="greenText">.4</option>
+                                          <option class="greenText">.5</option>
+                                           <option class="greenText">.6</option>
+                                            <option class="greenText">.7</option>
+                                             <option class="greenText">.8</option>
+                                              <option class="greenText">.9</option>
+                  </select>
+                      </label> 
+                  <input type="text" name="tyre_size_lxf" id="tyre_size_lxf"  disabled="disabled" size="2" class="greenText">  
+                       <input type="hidden" name="tyre_size_lyf" id="tyre_size_lyf" disabled="disabled" size="2">                     
+                 </div>
+                    <div style="float:left; width:80%">                    
+                      
+                       
+                       
+                    </div>
+                     <div style="float:left; width:20%">                    
+                      
+                       
+                       
+                    </div>
+                    <div style="float:left; width:100%">
+                      <select name="brake_pad_lf" id="brake_pad_lf" onchange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                        <option class="greenText">Brake Pads</option>
+                        <option class="redText">Brake Pads - Pass</option>
+                        <option class="blueText">Brake Pads - Fail</option>
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="brake_disk_lf" id="brake_disk_lf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Disks</option>
+                                  <option class="redText">Brake Disks - Pass</option>
+                                  <option class="blueText">Brake Disks - Fail</option>                                
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="shocker_lf" id="shocker_lf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Shocks</option>
+                                 <option class="redText">Shocks - Pass</option>
+                                  <option class="blueText">Shocks - Fail</option> 
+                                  <option class="blueText">Shocks - Leaking</option>                                   
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="wheel_lf" id="wheel_lf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Wheels</option>
+                                 <option class="redText">Wheels - Pass</option>
+                                  <option class="blueText">Wheels - Fail</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                    
+                      <select name="physical_damage_lf" id="physical_damage_lf" onChange="this.className=this.options[this.selectedIndex].className, changeDivImagert(), showImage()" class="greenText">
+                                  <option class="greenText">Physical Damage</option>
+                                  <option class="redText" value="Pass">Physical Damage - Pass</option>
+                                  <option class="blueText" value="Fail">Physical Damage - Fail</option>                                
+                      </select>
+                    </div>                                        
+                    
+                    
+                    <div style="float:left; width:100%;display:none;">
+                    <input type="button" name="take_picture1" id="take_picture1" value="Take Picture"  onclick="takePicture_LF()"/>
+                    </div>
+                 <div style="float:left; width:100%; margin-top:40px;">
+                   <select name="tyer_condition_lb" id="tyer_condition_lb" onchange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                     <option class="greenText">Tyre Condition</option>
+                     <option class="redText">Tyre - Pass</option>
+                     <option class="blueText">Tyre - Puncture</option>
+                     <option class="blueText">Tyre - Bubble</option>
+                     <option class="blueText">Tyre - Age</option>
+                     <option class="blueText">Tyre - Incorrect Size</option>
+                     <option class="blueText">Tyre - Run-flat Damage</option>
+                     <option class="blueText">Tyre - Spare wheel used</option>
+                   </select>
+                 </div>
+				   <div style="float:left; width:100%">
+                      <input type="text" name="tyre_size_lb" id="tyre_size_lb" placeholder="Tyre Size">                     
+                 </div>
+                     <div style="float:left; width:100%">
+                    
+                       <label class="greenText">  Tyre Depth  <select name="tyre_depth_lbx" id="tyre_depth_lbx" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                      <option class="greenText" value=""></option>
+                                      <option class="greenText">0</option>
+                                      <option class="greenText">1</option>
+                                      <option class="greenText">2</option>
+                                      <option class="greenText">3</option>
+                                      <option class="greenText">4</option>
+                                      <option class="greenText">5</option>
+                                      <option class="greenText">6</option>
+                                      <option class="greenText">7</option>
+                                      <option class="greenText">8</option>
+                                      <option class="greenText">9</option>
+                                      <option class="greenText">10</option>
+                                      <option class="greenText">11</option>
+                                      <option class="greenText">12</option>
+                                     
+                      </select><select name="tyre_depth_lby" id="tyre_depth_lby" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                      <option class="greenText" value=""></option>
+                                      <option class="greenText">.0</option>
+                                      <option class="greenText">.1</option>
+                                       <option class="greenText">.2</option>
+                                        <option class="greenText">.3</option>
+                                         <option class="greenText">.4</option>
+                                          <option class="greenText">.5</option>
+                                           <option class="greenText">.6</option>
+                                            <option class="greenText">.7</option>
+                                             <option class="greenText">.8</option>
+                                              <option class="greenText">.9</option>
+                                     
+                       </select></label> <input type="text" name="tyre_size_lxb" id="tyre_size_lxb"  disabled="disabled" size="2" class="greenText">  
+                       <input type="hidden" name="tyre_size_lyb" id="tyre_size_lyb" disabled="disabled" size="2">                        
+                    </div>
+                    <div style="float:left; width:80%">                    
+                      
+                       
+                       
+                    </div>
+                     <div style="float:left; width:20%">                    
+                      
+                       
+                       
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="brake_pad_lb" id="brake_pad_lb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Pads</option>
+                                 <option class="redText">Brake Pads - Pass</option>
+                                  <option class="blueText">Brake Pads - Fail</option>                               
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="brake_disk_lb" id="brake_disk_lb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Disks</option>
+                                  <option class="redText">Brake Disks - Pass</option>
+                                  <option class="blueText">Brake Disks - Fail</option>                                
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="shocker_lb" id="shocker_lb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Shocks</option>
+                                <option class="redText">Shocks - Pass</option>
+                                  <option class="blueText">Shocks - Fail</option> 
+                                  <option class="blueText">Shocks - Leaking</option>                                 
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="wheel_lb" id="wheel_lb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Wheels</option>
+                                 <option class="redText">Wheels - Pass</option>
+                                  <option class="blueText">Wheels - Fail</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                    
+                      <select name="physical_damage_lb" id="physical_damage_lb" onChange="this.className=this.options[this.selectedIndex].className, changeDivImage1b(), showImage()" class="greenText">
+                                  <option class="greenText">Physical Damage</option>
+                                  <option class="redText" value="Pass">Physical Damage - Pass</option>
+                                  <option class="blueText" value="Fail">Physical Damage - Fail</option>                                
+                      </select>
+                    </div>                                        
+                    <div style="float:left; width:100%;display:none;">
+                    <input type="button" name="take_picture2" id="take_picture2" value="Take Picture" onClick="takePicture_LB()" />
+                    </div>
+    </div>
+                <div style="float:left; width:27%; text-align:center;">
+                     <div style="float:left; width:100%">
+<select name="immoblizer_f" id="immoblizer_f" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Immobilizer</option>
+                                  <option class="redText">Immobilizer - Yes</option>
+                                  <option class="blueText">Immobilizer - No</option>                            
+                       </select>
+                    </div>
+                    <div style="float:left; width:100%">
+                      <select name="battery_f" id="battery_f" onchange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                        <option class="greenText">Battery</option>
+                        <option class="redText">Battery - Pass</option>
+                        <option class="blueText">Battery - Fail</option>
+                      </select>
+                    </div>
+                     <div style="float:left; width:100%">
+                       <select name="physical_damage_f" id="physical_damage_f" onchange="this.className=this.options[this.selectedIndex].className, changeDivImage(), showImage()" class="greenText">
+                         <option class="greenText" value="">Physical Damage</option>
+                         <option class="redText" value="Pass">Physical Damage - Pass</option>
+                         <option class="blueText" value="Fail">Physical Damage - Fail</option>
+                       </select>
+                     </div>
+                     
+                    <div style="float:left; width:100%;">
+                    <input type="button" name="take_picture3" id="take_picture3" value="Take Picture" onClick="takePicture_F()" />
+                    </div>
+                     <div style="float:left;width:100%; text-align:-moz-center;">
+                                        
+                       <table id="Table_01" width="301" height="610" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="21">
+			<img src="images/carimage_01.jpg" width="300" height="3" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="10">
+			<img src="images/carimage_02.jpg" width="133" height="19" alt=""></td>
+		<td colspan="2" rowspan="2">
+            <a href="javascript:void(0)" style="display:none;" id="div1red"> <img src="images/carimage_033.jpg" width="47" height="47" alt="" ></a>
+			 <span style="display:none;" id="div1"><img src="images/carimage_032.jpg" width="47" height="47" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div2"><img src="images/carimage_031.jpg" width="47" height="47" alt="" id="container"  ></a>
+            <img src="images/carimage_03.jpg" alt="" name="div3" width="47" height="47" id="div3" /></td>
+		<td colspan="9">
+			<img src="images/carimage_04.jpg" width="120" height="19" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="19" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="5">
+			<img src="images/carimage_05.jpg" width="32" height="190" alt=""></td>
+		<td colspan="3" rowspan="2">
+			 <span style="display:none;" id="div7red"><img src="images/carimage_063.jpg" width="45" height="48" alt="" ></span>
+             <span style="display:none;" id="div7"><img src="images/carimage_062.jpg" width="45" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div8"><img src="images/carimage_061.jpg"  width="45" height="48" alt="" id="container_rttop" ></a>
+            <img src="images/carimage_06.jpg"  width="45" height="48" alt="" id="div9" >            </td>
+		<td colspan="3" rowspan="3">
+			<img src="images/carimage_07.jpg" width="56" height="67" alt=""></td>
+		<td colspan="2" rowspan="14">
+			<img src="images/carimage_08.jpg" width="46" height="515" alt=""></td>
+		<td colspan="4" rowspan="2">
+			 <span style="display:none;" id="div19red"><img src="images/carimage_093.jpg" width="48" height="48" alt="" ></span>
+             <span style="display:none;" id="div19"><img src="images/carimage_092.jpg" width="48" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div20"><img src="images/carimage_091.jpg"  width="48" height="48" alt="" id="container_rftop"  ></a>
+            <img src="images/carimage_09.jpg"  width="48" height="48" alt="" id="div21" >            </td>
+		<td colspan="3" rowspan="6">
+			<img src="images/carimage_10.jpg" width="26" height="193" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="28" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2">
+			<img src="images/carimage_11.jpg" width="47" height="39" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="20" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3">
+			<img src="images/carimage_12.jpg" width="45" height="142" alt=""></td>
+		<td colspan="4" rowspan="4">
+			<img src="images/carimage_13.jpg" width="48" height="145" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="19" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="10">
+			<img src="images/carimage_14.jpg" width="53" height="445" alt=""></td>
+		<td colspan="2">
+			 <span style="display:none;" id="div4red"> <img src="images/carimage_153.jpg" width="47" height="47" alt="" ></span>
+           <span style="display:none;" id="div4"> <img src="images/carimage_152.jpg" width="47" height="47" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div5"><img src="images/carimage_151.jpg" width="47" height="47" alt="" id="container1" ></a>
+            <img src="images/carimage_15.jpg" width="47" height="47" alt="" id="div6" >            </td>
+		<td rowspan="16">
+			<img src="images/carimage_16.jpg" width="3" height="520" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="48" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="11">
+			<img src="images/carimage_17.jpg" width="47" height="423" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="75" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="14">
+			<img src="images/carimage_18.jpg" width="6" height="397" alt=""></td>
+		<td colspan="4" rowspan="2">
+			 <span style="display:none;" id="div10red"><img src="images/carimage_193.jpg" width="47" height="50" alt="" ></span>
+             <span style="display:none;" id="div10"><img src="images/carimage_192.jpg" width="47" height="50" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div11"><img src="images/carimage_191.jpg" width="47" height="50" alt="" id="container_rttop1" ></a>
+            <img src="images/carimage_19.jpg" width="47" height="50" alt="" id="div12" >            </td>
+		<td colspan="2" rowspan="4">
+			<img src="images/carimage_20.jpg" width="24" height="187" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="4">
+			<img src="images/carimage_21.jpg" width="23" height="185" alt=""></td>
+		<td colspan="4" rowspan="2">
+			 <span style="display:none;" id="div22red"><img src="images/carimage_223.jpg" width="46" height="49" alt="" ></span>
+             <span style="display:none;" id="div22"><img src="images/carimage_222.jpg" width="46" height="49" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div23"><img src="images/carimage_221.jpg"  width="46" height="49" alt="" id="container_rftop1"  ></a>
+            <img src="images/carimage_22.jpg" width="46" height="49" alt="" id="div24" >            </td>
+		<td rowspan="13">
+			<img src="images/carimage_23.jpg" width="5" height="394" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<img src="images/carimage_24.jpg" width="47" height="137" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="2" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<img src="images/carimage_25.jpg" width="46" height="136" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="135" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="10">
+			<img src="images/carimage_26.jpg" width="12" height="210" alt=""></td>
+		<td colspan="4" rowspan="2">
+			 <span style="display:none;" id="div13red"><img src="images/carimage_273.jpg"  width="49" height="48" alt="" ></span>
+              <span style="display:none;" id="div13"><img src="images/carimage_272.jpg"  width="49" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div14"><img src="images/carimage_271.jpg" width="49" height="48" alt="" id="container_rtbot"  ></a>
+            <img src="images/carimage_27.jpg" width="49" height="48" alt="" id="div15" >            </td>
+		<td rowspan="4">
+			<img src="images/carimage_28.jpg" width="10" height="135" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="4">
+			<img src="images/carimage_29.jpg" width="15" height="137" alt=""></td>
+		<td colspan="4" rowspan="2">
+			 <span style="display:none;" id="div25red"><img src="images/carimage_303.jpg" width="46" height="52" alt="" ></span>          
+             <span style="display:none;" id="div25"><img src="images/carimage_302.jpg" width="46" height="52" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div26"><img src="images/carimage_301.jpg"  width="46" height="52" alt="" id="container_rbtop" ></a>
+            <img src="images/carimage_30.jpg" width="46" height="52" alt="" id="div27" >            </td>
+		<td rowspan="9">
+			<img src="images/carimage_31.jpg" width="8" height="209" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<img src="images/carimage_32.jpg" width="49" height="87" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="5" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<img src="images/carimage_33.jpg" width="46" height="85" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="82" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="6">
+			<img src="images/carimage_34.jpg" width="12" height="75" alt=""></td>
+		<td colspan="5" rowspan="3">
+			 <span style="display:none;" id="div16red"><img src="images/carimage_353.jpg" width="50" height="48" alt="" ></span>
+              <span style="display:none;" id="div16"><img src="images/carimage_352.jpg" width="50" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div17"><img src="images/carimage_351.jpg" width="50" height="48" alt="" id="container_rtbot1"  ></a>
+            <img src="images/carimage_35.jpg" width="50" height="48" alt="" id="div18" >            </td>
+		<td rowspan="6">
+			<img src="images/carimage_36.jpg" width="50" height="75" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+			<img src="images/carimage_37.jpg" width="45" height="72" alt=""></td>
+		<td colspan="4" rowspan="3">
+			  <span style="display:none;" id="div28red"><img src="images/carimage_383.jpg" width="48" height="48" alt="" ></span>
+             <span style="display:none;" id="div28"><img src="images/carimage_382.jpg" width="48" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div29"><img src="images/carimage_381.jpg" width="48" height="48" alt="" id="container_rbtop1" ></a>
+            <img src="images/carimage_38.jpg" width="48" height="48" alt="" id="div30" >            </td>
+		<td colspan="2" rowspan="5">
+			<img src="images/carimage_39.jpg" width="14" height="72" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="23" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="3">
+		 <span style="display:none;" id="div31red"><img src="images/carimage_403.jpg" width="47" height="48" alt="" ></span>
+             <span style="display:none;" id="div31"><img src="images/carimage_402.jpg" width="47" height="48" alt="" ></span>
+            <a href="javascript:void(0)" style="display:none;" id="div32"><img src="images/carimage_401.jpg" width="47" height="48" alt="" id="container_bbbot1" ></a>
+            <img src="images/carimage_40.jpg" width="47" height="47" alt="" id="div33" >            </td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="22" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5" rowspan="3">
+			<img src="images/carimage_41.jpg" width="50" height="27" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<img src="images/carimage_42.jpg" width="48" height="24" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="23" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="images/carimage_43.jpg" width="47" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/spacer.gif" width="6" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="12" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="12" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="2" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="21" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="14" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="10" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="3" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="50" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="3" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="44" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="3" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="45" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="15" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="8" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="24" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="13" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="8" height="1" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="5" height="1" alt=""></td>
+		<td></td>
+	</tr>
+</table>
+                    </div>
+                     
+                    <div style="float:left; width:100%">                      
+<select name="spare_wheel_b" id="spare_wheel_b" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Spare Wheel</option>
+                                  <option class="redText">Spare Wheel - Yes</option>
+                                  <option class="blueText">Spare Wheel - No</option>                           
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">
+<select name="lock_nut_b" id="lock_nut_b" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Lock Nut</option>
+                                  <option class="redText">Lock Nut - Yes</option>
+                                  <option class="blueText">Lock Nut - No</option>                                 
+                      </select>
+                    </div>
+                     <div style="float:left; width:100%">                    
+<select name="physical_damage_b" id="physical_damage_b" onChange="this.className=this.options[this.selectedIndex].className, changeDivImagerbb(), showImage()" class="greenText">
+                                  <option class="greenText">Physical Damage</option>
+                                  <option class="redText" value="Pass">Physical Damage - Pass</option>
+                                  <option class="blueText" value="Fail">Physical Damage - Fail</option>   
+                                                                   
+                       </select>
+                    </div>
+                     
+                    <div style="float:left; width:100%;display:none;">
+                    <input type="button" name="take_picture4" id="take_picture4" value="Take Picture" onClick="takePicture_B()" />
+                    </div>
+                </div>
+                 <div style="float:left; width:30%;margin-left:8px;">
+                   <div style="float:left; width:100%; margin-top:40px;">
+                     <select name="tyer_condition_rf" id="tyer_condition_rf" onchange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                       <option class="greenText">Tyre Condition</option>
+                       <option class="redText">Tyre - Pass</option>
+                       <option class="blueText">Tyre - Puncture</option>
+                       <option class="blueText">Tyre - Bubble</option>
+                       <option class="blueText">Tyre - Age</option>
+                       <option class="blueText">Tyre - Incorrect Size</option>
+                       <option class="blueText">Tyre - Run-flat Damage</option>
+                       <option class="blueText">Tyre - Spare wheel used</option>
+                     </select>
+                   </div>
+					  <div style="float:left; width:100%">
+                      <input type="text" name="tyre_size_rf" id="tyre_size_rf" placeholder="Tyre Size">                     
+                    </div>
+                     <div style="float:left; width:100%">
+                           
+                        <input type="text" name="tyre_size_lrf" id="tyre_size_lrf"  disabled="disabled" size="2" class="greenText">  
+                       <input type="hidden" name="tyre_size_lyf" id="tyre_size_lyf" disabled="disabled" size="2"> <label class="greenText"> <select name="tyre_depth_rfx" id="tyre_depth_rfx" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                        <option class="greenText" value=""></option>
+                                        <option class="greenText">0</option>
+                                      <option class="greenText">1</option>
+                                      <option class="greenText">2</option>
+                                      <option class="greenText">3</option>
+                                      <option class="greenText">4</option>
+                                      <option class="greenText">5</option>
+                                      <option class="greenText">6</option>
+                                      <option class="greenText">7</option>
+                                      <option class="greenText">8</option>
+                                      <option class="greenText">9</option>
+                                      <option class="greenText">10</option>
+                                      <option class="greenText">11</option>
+                                      <option class="greenText">12</option>
+                                     
+                               </select> <select name="tyre_depth_rfy" id="tyre_depth_rfy" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                     <option class="greenText" value=""></option>
+                                      <option class="greenText">.0</option>
+                                      <option class="greenText">.1</option>
+                                       <option class="greenText">.2</option>
+                                        <option class="greenText">.3</option>
+                                         <option class="greenText">.4</option>
+                                          <option class="greenText">.5</option>
+                                           <option class="greenText">.6</option>
+                                            <option class="greenText">.7</option>
+                                             <option class="greenText">.8</option>
+                                              <option class="greenText">.9</option>
+                                     
+                               </select>Tyre Depth </label>               
+                    </div>
+                    <div style="float:left; width:20%">                    
+                      
+                       
+                       
+                    </div>
+                     <div style="float:left; width:80%">                    
+                      
+                       
+                       
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="brake_pad_rf" id="brake_pad_rf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Pads</option>
+                                 <option class="redText">Brake Pads - Pass</option>
+                                  <option class="blueText">Brake Pads - Fail</option>                              
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="brake_disk_rf" id="brake_disk_rf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Disks</option>
+                                  <option class="redText">Brake Disks - Pass</option>
+                                  <option class="blueText">Brake Disks - Fail</option>                                
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="shocker_rf" id="shocker_rf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Shocks</option>
+                                 <option class="redText">Shocks - Pass</option>
+                                  <option class="blueText">Shocks - Fail</option> 
+                                  <option class="blueText">Shocks - Leaking</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="wheel_rf" id="wheel_rf" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Wheels</option>
+                                 <option class="redText">Wheels - Pass</option>
+                                  <option class="blueText">Wheels - Fail</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                    
+                      <select name="physical_damage_rf" id="physical_damage_rf" onChange="this.className=this.options[this.selectedIndex].className, changeDivImagerf(), showImage()" class="greenText">
+                                  <option class="greenText">Physical Damage</option>
+                                  <option class="redText" value="Pass">Physical Damage - Pass</option>
+                                  <option class="blueText" value="Fail">Physical Damage - Fail</option>                                
+                      </select>
+                    </div>                                        
+                    <div style="float:left; width:100%;display:none;">
+                    <input type="button" name="take_picture5" id="take_picture5" value="Take Picture" onClick="takePicture_RF()" />
+                    </div>
+                    <div style="float:left; width:100%; margin-top:40px;">
+                     <select name="tyer_condition_rb" id="tyer_condition_rb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                     <option class="greenText">Tyre Condition</option>
+                                      <option class="redText">Tyre - Pass</option>
+                                      <option class="blueText">Tyre - Puncture</option>
+                                      <option class="blueText">Tyre - Bubble</option>
+                                      <option class="blueText">Tyre - Age</option>
+                                      <option class="blueText">Tyre - Incorrect Size</option>
+                                      <option class="blueText">Tyre - Run-flat Damage</option>
+                                      <option class="blueText">Tyre - Spare wheel used</option>
+                      </select>
+                    
+                    </div>
+					  <div style="float:left; width:100%">
+                      <input type="text" name="tyre_size_rb" id="tyre_size_rb" placeholder="Tyre Size">                     
+                    </div>
+                     <div style="float:left; width:100%">
+                      
+                       <input type="text" name="tyre_size_lxrb" id="tyre_size_lxrb"  disabled="disabled" size="2" class="greenText">  
+                       <input type="hidden" name="tyre_size_lyrb" id="tyre_size_lyrb" disabled="disabled" size="2"> <label class="greenText"> <select name="tyre_depth_rbx" id="tyre_depth_rbx" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                      <option class="greenText" value=""></option>
+                                      <option class="greenText">0</option>
+                                      <option class="greenText">1</option>
+                                      <option class="greenText">2</option>
+                                      <option class="greenText">3</option>
+                                      <option class="greenText">4</option>
+                                      <option class="greenText">5</option>
+                                      <option class="greenText">6</option>
+                                      <option class="greenText">7</option>
+                                      <option class="greenText">8</option>
+                                      <option class="greenText">9</option>
+                                      <option class="greenText">10</option>
+                                      <option class="greenText">11</option>
+                                      <option class="greenText">12</option>
+                                     
+                               </select><select name="tyre_depth_rby" id="tyre_depth_rby" onChange="this.className=this.options[this.selectedIndex].className" class="greenText" style="width:40px;">
+                                       <option class="greenText" value=""></option>
+                                      <option class="greenText">.0</option>
+                                      <option class="greenText">.1</option>
+                                       <option class="greenText">.2</option>
+                                        <option class="greenText">.3</option>
+                                         <option class="greenText">.4</option>
+                                          <option class="greenText">.5</option>
+                                           <option class="greenText">.6</option>
+                                            <option class="greenText">.7</option>
+                                             <option class="greenText">.8</option>
+                                              <option class="greenText">.9</option>
+                                     
+                               </select>  Tyre Depth  </label>                   
+                    </div>
+                    <div style="float:left; width:20%">                    
+                      
+                       
+                       
+                    </div>
+                     <div style="float:left; width:80%">                    
+                      
+                       
+                       
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="brake_pad_rb" id="brake_pad_rb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Pads</option>
+                                 <option class="redText">Brake Pads - Pass</option>
+                                  <option class="blueText">Brake Pads -Fail</option>                                
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="brake_disk_rb" id="brake_disk_rb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Brake Disks</option>
+                                  <option class="redText">Brake Disks - Pass</option>
+                                  <option class="blueText">Brake Disks - Fail</option>                                
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                     
+                      <select name="shocker_rb" id="shocker_rb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Shocks</option>
+                                  <option class="redText">Shocks - Pass</option>
+                                  <option class="blueText">Shocks - Fail</option> 
+                                  <option class="blueText">Shocks - Leaking</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                      
+                      <select name="wheel_rb" id="wheel_rb" onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
+                                  <option class="greenText">Wheels</option>
+                                 <option class="redText">Wheels - Pass</option>
+                                  <option class="blueText">Wheels - Fail</option>                                  
+                      </select>
+                    </div>
+                    <div style="float:left; width:100%">                    
+                      <select name="physical_damage_rb" id="physical_damage_rb" onChange="this.className=this.options[this.selectedIndex].className, changeDivImagerb(), showImage()" class="greenText">
+                                  <option class="greenText">Physical Damage</option>
+                                  <option class="redText" value="Pass">Physical Damage - Pass</option>
+                                  <option class="blueText" value="Fail">Physical Damage - Fail</option>                                
+                      </select>
+                    </div>                                        
+                    <div style="float:left; width:100%;display:none;">
+                    <input type="button" name="take_picture6" id="take_picture6" value="Take Picture" onClick="takePicture_RB()" />
+                    </div>
+                </div>
+                 <div style="float:left; width:90%; text-align:center; display:none;" id="sumitimg"> 
+                  <input type="button" style="background:url(images/arrow_down_green.png); border:none;  height:64; width:64; color:#fff" value="" name="submit" onClick="validation();">
+                </div>
+</div>
+</form>
+
+
+<style>
+select{
+    margin:4px;
+    background: #fff;   
+	width:190px;
+}
+
+.greenText{ color:#000;font-weight:600;background:#FFF; }
+
+.blueText{ color:#000;font-weight:600;  background:#fd6f57;   }
+
+.redText{ color:#000; font-weight:600; background:#67fa67; }
+
+.greenText1{  }
+
+.blueText1{ background:url(images/carimage_031.jpg); }
+
+.redText1{ background:url(images/carimage_031.jpg);  }
+
+		
+</style>
+ 
+ <script language="javascript" type="text/javascript">
+    function changeDivImage()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("physical_damage_f").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div1red").style.display = 'none';
+	    document.getElementById("div1").style.display = 'block';
+		document.getElementById("div2").style.display = 'none';
+		document.getElementById("div3").style.display = 'none';
+		
+		 document.getElementById("div4red").style.display = 'none';	
+		 document.getElementById("div4").style.display = 'block';
+		document.getElementById("div5").style.display = 'none';
+		document.getElementById("div6").style.display = 'none';
+		
+		 }else if(optionid=='Fail'){
+		 document.getElementById("div1red").style.display = 'none';	 
+		document.getElementById("div1").style.display = 'none';
+		document.getElementById("div2").style.display = 'block';
+		document.getElementById("div3").style.display = 'none';
+		 document.getElementById("div4red").style.display = 'none';	
+		document.getElementById("div4").style.display = 'none';
+		document.getElementById("div5").style.display = 'block';
+		document.getElementById("div6").style.display = 'none';
+		
+		 }else{
+	     document.getElementById("div1red").style.display = 'none';		 
+	    document.getElementById("div1").style.display = 'none';
+		document.getElementById("div2").style.display = 'none';
+		document.getElementById("div3").style.display = 'block';
+		 document.getElementById("div4red").style.display = 'none';	
+		document.getElementById("div4").style.display = 'none';
+		document.getElementById("div5").style.display = 'none';
+		document.getElementById("div6").style.display = 'block';
+		
+		 }
+    }
+	
+	function changeDivImageAlt()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div1red").style.display = 'none';
+	    document.getElementById("div1").style.display = 'block';
+		document.getElementById("div2").style.display = 'none';
+		document.getElementById("div3").style.display = 'none';
+		
+		
+		
+		 }
+    }
+	function changeDivImageAltRed()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div1red").style.display = 'block';
+	    document.getElementById("div1").style.display = 'none';
+		document.getElementById("div2").style.display = 'none';
+		document.getElementById("div3").style.display = 'none';
+		
+		android.takePicture("FF");
+	
+		
+		 }
+    }
+
+	function changeDivImageAlt1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose1").className;
+	
+         if(optionid=='123' ){   
+	  
+		
+		 document.getElementById("div4red").style.display = 'none';		
+		 document.getElementById("div4").style.display = 'block';
+		document.getElementById("div5").style.display = 'none';
+		document.getElementById("div6").style.display = 'none';
+		
+		 }
+    }
+	function changeDivImageAltRed1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed1").className;
+	
+         if(optionid=='456' ){   
+	  
+		
+		 document.getElementById("div4red").style.display = 'block';			
+		 document.getElementById("div4").style.display = 'none';
+		document.getElementById("div5").style.display = 'none';
+		document.getElementById("div6").style.display = 'none';
+		android.takePicture("FM");
+		 }
+    }
+		
+	function changeDivImagert()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	var optionid = document.getElementById("physical_damage_lf").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div7red").style.display = 'none';
+	    document.getElementById("div7").style.display = 'block';
+		document.getElementById("div8").style.display = 'none';
+		document.getElementById("div9").style.display = 'none';
+		
+		 document.getElementById("div10red").style.display = 'none';
+		 document.getElementById("div10").style.display = 'block';
+		document.getElementById("div11").style.display = 'none';
+		document.getElementById("div12").style.display = 'none';
+		
+		 }else if(optionid=='Fail'){
+		 document.getElementById("div7red").style.display = 'none';
+		document.getElementById("div7").style.display = 'none';
+		document.getElementById("div8").style.display = 'block';
+		document.getElementById("div9").style.display = 'none';
+		 document.getElementById("div10red").style.display = 'none';
+		document.getElementById("div10").style.display = 'none';
+		document.getElementById("div11").style.display = 'block';
+		document.getElementById("div12").style.display = 'none';
+		
+		 }else{
+		 document.getElementById("div7red").style.display = 'none';
+	    document.getElementById("div7").style.display = 'none';
+		document.getElementById("div8").style.display = 'none';
+		document.getElementById("div9").style.display = 'block';
+		 document.getElementById("div10red").style.display = 'none';
+		document.getElementById("div10").style.display = 'none';
+		document.getElementById("div11").style.display = 'none';
+		document.getElementById("div12").style.display = 'block';
+		
+		 }
+    }
+	
+	function changeDivImageAlt_rttop()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div7red").style.display = 'none';
+	    document.getElementById("div7").style.display = 'block';
+		document.getElementById("div8").style.display = 'none';
+		document.getElementById("div9").style.display = 'none';
+	
+		
+		 }
+    }
+	function changeDivImageAltRed_rttop()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div7red").style.display = 'block';
+	    document.getElementById("div7").style.display = 'none';
+		document.getElementById("div8").style.display = 'none';
+		document.getElementById("div9").style.display = 'none';
+		
+		android.takePicture("FL");
+		
+		 }
+    }
+function changeDivImageAlt_rttop1()
+    {       
+	
+	var optionid = document.getElementById("popupBoxClose1").className;
+	
+         if(optionid=='123' ){   
+	 
+		 document.getElementById("div10red").style.display = 'none';		
+		 document.getElementById("div10").style.display = 'block';
+		document.getElementById("div11").style.display = 'none';
+		document.getElementById("div12").style.display = 'none';
+		
+		 }
+    }
+	function changeDivImageAltRed_rttop1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed1").className;
+	
+         if(optionid=='456' ){   
+	  		
+		 document.getElementById("div10red").style.display = 'block';			
+		 document.getElementById("div10").style.display = 'none';
+		document.getElementById("div11").style.display = 'none';
+		document.getElementById("div12").style.display = 'none';
+		android.takePicture("FSL");
+		 }
+    }
+		
+	function changeDivImage1b()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	var optionid = document.getElementById("physical_damage_lb").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div13red").style.display = 'none';
+	    document.getElementById("div13").style.display = 'block';
+		document.getElementById("div14").style.display = 'none';
+		document.getElementById("div15").style.display = 'none';
+		
+		 document.getElementById("div16red").style.display = 'none';
+		 document.getElementById("div16").style.display = 'block';
+		document.getElementById("div17").style.display = 'none';
+		document.getElementById("div18").style.display = 'none';
+		
+		 }else if(optionid=='Fail'){
+		 document.getElementById("div13red").style.display = 'none';	 
+		document.getElementById("div13").style.display = 'none';
+		document.getElementById("div14").style.display = 'block';
+		document.getElementById("div15").style.display = 'none';
+		
+		 document.getElementById("div16red").style.display = 'none';
+		document.getElementById("div16").style.display = 'none';
+		document.getElementById("div17").style.display = 'block';
+		document.getElementById("div18").style.display = 'none';
+		
+		 }else{
+			  document.getElementById("div13red").style.display = 'none';
+	    document.getElementById("div13").style.display = 'none';
+		document.getElementById("div14").style.display = 'none';
+		document.getElementById("div15").style.display = 'block';
+		
+		 document.getElementById("div16red").style.display = 'none';
+		document.getElementById("div16").style.display = 'none';
+		document.getElementById("div17").style.display = 'none';
+		document.getElementById("div18").style.display = 'block';
+		
+		 }
+    }
+	function changeDivImageAlt_rtbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div13red").style.display = 'none';
+	    document.getElementById("div13").style.display = 'block';
+		document.getElementById("div14").style.display = 'none';
+		document.getElementById("div15").style.display = 'none';
+		
+		
+		
+		 }
+    }
+	function changeDivImageAltRed_rtbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div13red").style.display = 'block';
+	    document.getElementById("div13").style.display = 'none';
+		document.getElementById("div14").style.display = 'none';
+		document.getElementById("div15").style.display = 'none';
+		android.takePicture("BSL");
+		
+		 }
+    }
+	function changeDivImageAlt_rtbot1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose1").className;
+	
+         if(optionid=='123' ){   
+	   
+		
+		 document.getElementById("div16red").style.display = 'none';		
+		 document.getElementById("div16").style.display = 'block';
+		document.getElementById("div17").style.display = 'none';
+		document.getElementById("div18").style.display = 'none';
+		
+		 }
+    }
+	function changeDivImageAltRed_rtbot1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed1").className;
+	
+         if(optionid=='456' ){   
+	
+		 document.getElementById("div16red").style.display = 'block';			
+		 document.getElementById("div16").style.display = 'none';
+		document.getElementById("div17").style.display = 'none';
+		document.getElementById("div18").style.display = 'none';
+		android.takePicture("BL");
+		 }
+    }
+	function changeDivImagerf()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	var optionid = document.getElementById("physical_damage_rf").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	    document.getElementById("div19red").style.display = 'none';
+	    document.getElementById("div19").style.display = 'block';
+		document.getElementById("div20").style.display = 'none';
+		document.getElementById("div21").style.display = 'none';
+		
+		 document.getElementById("div22red").style.display = 'none';
+		 document.getElementById("div22").style.display = 'block';
+		document.getElementById("div23").style.display = 'none';
+		document.getElementById("div24").style.display = 'none';
+		
+		 }else if(optionid=='Fail'){
+			  document.getElementById("div19red").style.display = 'none';
+		document.getElementById("div19").style.display = 'none';
+		document.getElementById("div20").style.display = 'block';
+		document.getElementById("div21").style.display = 'none';
+		
+		 document.getElementById("div22red").style.display = 'none';
+		document.getElementById("div22").style.display = 'none';
+		document.getElementById("div23").style.display = 'block';
+		document.getElementById("div24").style.display = 'none';
+		
+		 }else{
+			  document.getElementById("div19red").style.display = 'none';
+	    document.getElementById("div19").style.display = 'none';
+		document.getElementById("div20").style.display = 'none';
+		document.getElementById("div21").style.display = 'block';
+		
+		 document.getElementById("div22red").style.display = 'none';
+		document.getElementById("div22").style.display = 'none';
+		document.getElementById("div23").style.display = 'none';
+		document.getElementById("div24").style.display = 'block';
+		
+		 }
+    }
+	function changeDivImageAlt_rftop()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div19red").style.display = 'none';
+	    document.getElementById("div19").style.display = 'block';
+		document.getElementById("div20").style.display = 'none';
+		document.getElementById("div21").style.display = 'none';
+		
+		
+		 }
+    }
+	function changeDivImageAltRed_rfbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div19red").style.display = 'block';
+	    document.getElementById("div19").style.display = 'none';
+		document.getElementById("div20").style.display = 'none';
+		document.getElementById("div21").style.display = 'none';
+		android.takePicture("FR");
+		
+		 }
+    }
+
+function changeDivImageAlt_rftop1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose1").className;
+	
+         if(optionid=='123' ){   
+	   
+		
+		 document.getElementById("div22red").style.display = 'none';		
+		 document.getElementById("div22").style.display = 'block';
+		document.getElementById("div23").style.display = 'none';
+		document.getElementById("div24").style.display = 'none';
+		
+		 }
+    }
+	function changeDivImageAltRed_rfbot1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed1").className;
+	
+         if(optionid=='456' ){   
+	 
+		 document.getElementById("div22red").style.display = 'block';			
+		 document.getElementById("div22").style.display = 'none';
+		document.getElementById("div23").style.display = 'none';
+		document.getElementById("div23").style.display = 'none';
+		android.takePicture("FSR");
+		 }
+    }
+		
+	function changeDivImagerb()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	var optionid = document.getElementById("physical_damage_rb").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div25red").style.display = 'none';
+	    document.getElementById("div25").style.display = 'block';
+		document.getElementById("div26").style.display = 'none';
+		document.getElementById("div27").style.display = 'none';
+		
+		 document.getElementById("div28red").style.display = 'none';
+		 document.getElementById("div28").style.display = 'block';
+		document.getElementById("div29").style.display = 'none';
+		document.getElementById("div30").style.display = 'none';
+		
+
+		 }else if(optionid=='Fail'){
+			  document.getElementById("div25red").style.display = 'none';
+		document.getElementById("div25").style.display = 'none';
+		document.getElementById("div26").style.display = 'block';
+		document.getElementById("div27").style.display = 'none';
+		
+		 document.getElementById("div28red").style.display = 'none';
+		document.getElementById("div28").style.display = 'none';
+		document.getElementById("div29").style.display = 'block';
+		document.getElementById("div30").style.display = 'none';
+		
+		 }else{
+			  document.getElementById("div25red").style.display = 'none';
+	    document.getElementById("div25").style.display = 'none';
+		document.getElementById("div26").style.display = 'none';
+		document.getElementById("div27").style.display = 'block';
+		
+		 document.getElementById("div28red").style.display = 'none';
+		document.getElementById("div28").style.display = 'none';
+		document.getElementById("div29").style.display = 'none';
+		document.getElementById("div30").style.display = 'block';
+		
+		 }
+    }
+	function changeDivImageAlt_rbtop()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div25red").style.display = 'none';
+	    document.getElementById("div25").style.display = 'block';
+		document.getElementById("div26").style.display = 'none';
+		document.getElementById("div27").style.display = 'none';
+		
+		
+		 }
+    }
+	function changeDivImageAltRed_rbbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div25red").style.display = 'block';
+	    document.getElementById("div25").style.display = 'none';
+		document.getElementById("div26").style.display = 'none';
+		document.getElementById("div27").style.display = 'none';
+		android.takePicture("BSR");
+		 }
+    }
+	
+	function changeDivImageAlt_rbtop1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose1").className;
+	
+         if(optionid=='123' ){   
+	  
+		 document.getElementById("div28red").style.display = 'none';		
+		 document.getElementById("div28").style.display = 'block';
+		document.getElementById("div29").style.display = 'none';
+		document.getElementById("div30").style.display = 'none';
+		
+		 }
+    }
+	function changeDivImageAltRed_rbbot1()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed1").className;
+	
+         if(optionid=='456' ){   
+	  
+		 document.getElementById("div28red").style.display = 'block';			
+		 document.getElementById("div28").style.display = 'none';
+		document.getElementById("div29").style.display = 'none';
+		document.getElementById("div30").style.display = 'none';
+		android.takePicture("BR");
+		 }
+    }
+	
+	function changeDivImagerbb()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	var optionid = document.getElementById("physical_damage_b").value;
+         if(optionid=='Pass'){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	    document.getElementById("div31red").style.display = 'none';
+	    document.getElementById("div31").style.display = 'block';
+		document.getElementById("div32").style.display = 'none';
+		document.getElementById("div33").style.display = 'none';	
+		
+		 }else if(optionid=='Fail'){
+			   document.getElementById("div31red").style.display = 'none';
+		document.getElementById("div31").style.display = 'none';
+		document.getElementById("div32").style.display = 'block';
+		document.getElementById("div33").style.display = 'none';
+				
+		 }else{
+			   document.getElementById("div31red").style.display = 'none';
+	    document.getElementById("div31").style.display = 'none';
+		document.getElementById("div32").style.display = 'none';
+		document.getElementById("div33").style.display = 'block';
+				
+		 }
+    }
+	
+	function changeDivImageAlt_bbbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxClose").className;
+	
+         if(optionid=='123' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	   document.getElementById("div31red").style.display = 'none';
+	    document.getElementById("div31").style.display = 'block';
+		document.getElementById("div32").style.display = 'none';
+		document.getElementById("div33").style.display = 'none';
+			
+		 }
+    }
+	function changeDivImageAltRed_bbbot()
+    {         // alert(document.getElementById("physical_damage_f").value);
+	
+	var optionid = document.getElementById("popupBoxCloseRed").className;
+	
+         if(optionid=='456' ){   
+	   //document.getElementById("div1").src="images/carimage_03"+document.getElementById("physical_damage_f").value+".jpg";
+	     document.getElementById("div31red").style.display = 'block';
+	    document.getElementById("div31").style.display = 'none';
+		document.getElementById("div32").style.display = 'none';
+		document.getElementById("div33").style.display = 'none';
+			android.takePicture("BM");
+		
+		 }
+    }
+    </script>
+    
+    <script type="text/javascript">
+    var mytextbox = document.getElementById('tyre_size_lxf');
+	 var mytextbox1 = document.getElementById('tyre_size_lyf');
+    var mydropdownx = document.getElementById('tyre_depth_lfx');
+    var mydropdowny = document.getElementById('tyre_depth_lfy');
+
+    mydropdownx.onchange = function(){
+          mytextbox1.value =   this.value;  
+    }
+	 mydropdowny.onchange = function(){
+          mytextbox.value =   mytextbox1.value + this.value; 		
+		
+		 if(mytextbox.value!='1.0' && mytextbox.value!='1.1' && mytextbox.value!='1.2'&& mytextbox.value!='1.3'&& mytextbox.value!='1.4'&& mytextbox.value!='1.5'&& mytextbox.value!='1.6'){
+			
+			  mytextbox.className = 'redText';
+		 }else{
+			  mytextbox.className = 'blueText';
+		 }
+    }
+</script>
+<script type="text/javascript">
+    var mytextboxb = document.getElementById('tyre_size_lxb');
+	 var mytextbox1b = document.getElementById('tyre_size_lyb');
+    var mydropdownxb = document.getElementById('tyre_depth_lbx');
+    var mydropdownyb = document.getElementById('tyre_depth_lby');
+
+    mydropdownxb.onchange = function(){
+          mytextbox1b.value =   this.value;  
+    }
+	 mydropdownyb.onchange = function(){
+          mytextboxb.value =   mytextbox1b.value + this.value; 		
+		
+		 if(mytextboxb.value!='1.0' && mytextboxb.value!='1.1' && mytextboxb.value!='1.2'&& mytextboxb.value!='1.3'&& mytextboxb.value!='1.4'&& mytextboxb.value!='1.5'&& mytextboxb.value!='1.6'){
+			
+			  mytextboxb.className = 'redText';
+		 }else{
+			  mytextboxb.className = 'blueText';
+		 }
+    }
+</script>
+<script type="text/javascript">
+    var mytextboxr = document.getElementById('tyre_size_lrf');
+	 var mytextbox1r = document.getElementById('tyre_size_lyf');
+    var mydropdownxr = document.getElementById('tyre_depth_rfx');
+    var mydropdownyr = document.getElementById('tyre_depth_rfy');
+
+    mydropdownxr.onchange = function(){
+          mytextbox1r.value =   this.value;  
+    }
+	 mydropdownyr.onchange = function(){
+          mytextboxr.value =   mytextbox1r.value + this.value; 		
+		
+		 if(mytextboxr.value!='1.0' && mytextboxr.value!='1.1' && mytextboxr.value!='1.2'&& mytextboxr.value!='1.3'&& mytextboxr.value!='1.4'&& mytextboxr.value!='1.5'&& mytextboxr.value!='1.6'){
+			
+			  mytextboxr.className = 'redText';
+		 }else{
+			  mytextboxr.className = 'blueText';
+		 }
+    }
+</script>
+<script type="text/javascript">
+    var mytextboxrb = document.getElementById('tyre_size_lxrb');
+	 var mytextbox1rb = document.getElementById('tyre_size_lyrb');
+    var mydropdownxrb = document.getElementById('tyre_depth_rbx');
+    var mydropdownyrb = document.getElementById('tyre_depth_rby');
+
+    mydropdownxrb.onchange = function(){
+          mytextbox1rb.value =   this.value;  
+    }
+	 mydropdownyrb.onchange = function(){
+          mytextboxrb.value =   mytextbox1rb.value + this.value; 		
+		
+		 if(mytextboxrb.value!='1.0' && mytextboxrb.value!='1.1' && mytextboxrb.value!='1.2'&& mytextboxrb.value!='1.3'&& mytextboxrb.value!='1.4'&& mytextboxrb.value!='1.5'&& mytextboxrb.value!='1.6'){
+			
+			  mytextboxrb.className = 'redText';
+		 }else{
+			  mytextboxrb.className = 'blueText';
+		 }
+    }
+</script>
+
+
+
+<script language="javascript" type="text/javascript">
+    function showImage()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+	 function showImageredbsr()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+	
+	function showImageredbr()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+function showImageredbm()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}	
+	function showImageredbm()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}	
+	function showImageredbl()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}	
+	function showImageredbsl()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+	
+/////////////////
+
+
+ function showImageredff()
+    {        
+	if(document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+ function showImageredfm()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+ function showImageredfl()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+ function showImageredfsl()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none'  && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+ function showImageredfr()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' &&  document.getElementById("div23").style.display == 'none' && document.getElementById("div24").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}
+ function showImageredfsr()
+    {        
+	if(document.getElementById("div2").style.display == 'none' && document.getElementById("div3").style.display == 'none' && document.getElementById("div6").style.display == 'none' && document.getElementById("div5").style.display == 'none' && document.getElementById("div8").style.display == 'none' && document.getElementById("div9").style.display == 'none' && document.getElementById("div11").style.display == 'none' && document.getElementById("div12").style.display == 'none' && document.getElementById("div14").style.display == 'none' && document.getElementById("div15").style.display == 'none' && document.getElementById("div17").style.display == 'none' && document.getElementById("div18").style.display == 'none' && document.getElementById("div20").style.display == 'none' && document.getElementById("div21").style.display == 'none' && document.getElementById("div26").style.display == 'none' && document.getElementById("div27").style.display == 'none' && document.getElementById("div29").style.display == 'none' && document.getElementById("div30").style.display == 'none' && document.getElementById("div32").style.display == 'none' && document.getElementById("div33").style.display == 'none'){
+		
+		
+		 document.getElementById("sumitimg").style.display = 'block';
+		
+	}else{ document.getElementById("sumitimg").style.display = 'none';  }
+	}							
+</script>

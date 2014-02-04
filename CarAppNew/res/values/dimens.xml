@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="first_screen_label_width">150dp</dimen>
+    <dimen name="lavel_size">25dp</dimen>
+    <dimen name="lavel_size_small">18dp</dimen>
+     <dimen name="lavel_size_header">30dp</dimen>
+    <dimen name="levelwidth">120dp</dimen>
+    <dimen name="valueadded">150dp</dimen>
+    <dimen name="lavel_size_medium">20dp</dimen>
+    <dimen name="box_width">450dp</dimen>
+</resources>

@@ -1,0 +1,34 @@
+package com.carapp.util;
+
+import android.os.Environment;
+
+public class PdfInfo {
+
+
+	public static String path = Environment.getExternalStorageDirectory()
+			+ "/CarTemp/";
+
+	public static String name;
+	public static String client = "client";
+	public static String branch = "branch";
+	public static String carnoplate = "unknowne";
+    public static String csdId="";
+	 public static final int EDIT_MODE=1;
+	 public static final int EXIT_MODE=2;
+	 public static final int CHECKOUT_MODE=3;
+	
+	/*public static String dateaddress = "http://carapp.dyndns.org/carapp/mobile_webservices/date.php";
+	public static String dayaddress = "http://carapp.dyndns.org/carapp/mobile_webservices/day.php";*/
+	 public static String dateaddress = "http://techsoftlabs.com/carapp/mobile_webservices/date.php";
+		public static String dayaddress = "http://techsoftlabs.com/carapp/mobile_webservices/day.php";
+	 
+	//public static String newjobcard = "http://carapp.dyndns.org/carapp/mobile_webservices/mobile_webservice.php";
+	public static String newjobcard = "http://techsoftlabs.com/carapp/mobile_webservices/mobile_webservice.php";
+	public  static final String RegistrationList= "http://techsoftlabs.com/carapp/mobile_webservices/getlist.php";
+	public  static final String UploadFiles = "http://techsoftlabs.com/carapp/mobile_webservices/carapp_uploadfiles.php";
+	public static int mode=0;
+	public static boolean display=true;
+
+	
+
+}
