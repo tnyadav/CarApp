@@ -20,6 +20,7 @@ import com.carapp.bean.CustomerData;
 import com.carapp.bean.JobData;
 import com.carapp.bean.WorkAssissment;
 import com.carapp.util.PdfInfo;
+import com.carapp.util.UIUtils;
 import com.example.carappnew.R;
 import com.example.tnutil.Callback;
 import com.example.tnutil.Util;
@@ -401,16 +402,18 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 
 	@Override
 	protected void onPostExecute(String result) {
-
+		carAppSession.setCurrentUploadFileStatus(PdfInfo.status.PDFCREATED);
 		super.onPostExecute(result);
 		dialog.dismiss();
+		
 		Util.showCustomDialog(context, "Pdf Created",
 				"Upload Data to server ? ", "YES", "NO", new Callback() {
 
 					@Override
 					public void ok() {
-
+						
 						new UpdateDataBase(context, action,carAppSession).execute("");
+					
 					}
 
 					@Override

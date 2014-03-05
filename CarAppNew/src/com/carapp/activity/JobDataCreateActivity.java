@@ -25,7 +25,10 @@ import android.widget.Toast;
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.JobData;
 import com.carapp.server.CreatePdf;
+import com.carapp.server.UpdateDataBase;
+import com.carapp.server.UploadFile;
 import com.carapp.util.PdfInfo;
+import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
 public class JobDataCreateActivity extends Activity {
@@ -60,7 +63,7 @@ public class JobDataCreateActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.job_data_create);
 		context = this;
-		
+		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
 		radiogrouptext = "";
 		isCustomerSignaturedraw = false;
 		isSalePersonSignaturedraw = false;
@@ -196,45 +199,63 @@ public class JobDataCreateActivity extends Activity {
 
 			case R.id.submit:
 				
-				if (Quotation1.getText().length() < 1) {
-
-					Toast.makeText(context, "Fill  quotation fields",
-							Toast.LENGTH_LONG).show();
-					return;
-				} 
-				else if (entryInList.equals("yes") &&  Quotation2.getText().length() < 1) {
-					Toast.makeText(context, "Fill  quotation fields",
-							Toast.LENGTH_LONG).show();
-					return;
+				status currentStatus = ((CarAppSession) getApplication()).getCurrentUploadFileStatus();
+				Log.e("status", ""+currentStatus);
+				Toast.makeText(context, ""+currentStatus, 1).show();
 				
+				switch (currentStatus) {
+				case PDFCREATED:
+					new UpdateDataBase(context, "storeindb",
+							((CarAppSession) getApplication())).execute("");
+					break;
+				case DATABASEUPDATED:
+					new UploadFile(context, PdfInfo.path,
+							((CarAppSession) getApplication())).execute("");
+					break;
+				case FILESUPLOADED:
+					if (Quotation1.getText().length() < 1) {
+
+						Toast.makeText(context, "Fill  quotation fields",
+								Toast.LENGTH_LONG).show();
+						return;
+					} 
+					else if (entryInList.equals("yes") &&  Quotation2.getText().length() < 1) {
+						Toast.makeText(context, "Fill  quotation fields",
+								Toast.LENGTH_LONG).show();
+						return;
 					
-				}
-				else if (!isCustomerSignaturedraw || !isSalePersonSignaturedraw)
-					
-				{
-					
-					Toast.makeText(context, "Draw Signature", Toast.LENGTH_LONG)
-					.show();
-					return;
-				} else if (isCustomerSignaturedraw && isSalePersonSignaturedraw) {
-					
-				JobData	jobData=new JobData();
-						jobData.setCust_approved_work(TextUtils.join(",",datacust_approved_work)); 
-						jobData.setDealer_recommendations(TextUtils.join(",", datadealer_recomendation));
-						jobData.setRadiodata(radiogrouptext);
-						jobData.setQuotation1(Quotation1.getText().toString());
-						jobData.setQuotation2(Quotation2.getText().toString());
-						jobData.setObservations(observations.getText().toString());
-						jobData.setDiplay(entryInList);
-						Log.e("jobData", ""+jobData);
-						Toast.makeText(context, "done", 3).show();
-						((CarAppSession)getApplication()).setJobData(jobData);
-						new CreatePdf(context, "storeindb",((CarAppSession)getApplication())).execute("");
 						
-					
+					}
+					else if (!isCustomerSignaturedraw || !isSalePersonSignaturedraw)
+						
+					{
+						
+						Toast.makeText(context, "Draw Signature", Toast.LENGTH_LONG)
+						.show();
+						return;
+					} else if (isCustomerSignaturedraw && isSalePersonSignaturedraw) {
+						
+					JobData	jobData=new JobData();
+							jobData.setCust_approved_work(TextUtils.join(",",datacust_approved_work)); 
+							jobData.setDealer_recommendations(TextUtils.join(",", datadealer_recomendation));
+							jobData.setRadiodata(radiogrouptext);
+							jobData.setQuotation1(Quotation1.getText().toString());
+							jobData.setQuotation2(Quotation2.getText().toString());
+							jobData.setObservations(observations.getText().toString());
+							jobData.setDiplay(entryInList);
+							Log.e("jobData", ""+jobData);
+							Toast.makeText(context, "done", 3).show();
+							
+							
+							new CreatePdf(context, "storeindb",((CarAppSession)getApplication())).execute("");
+							
+						
 
+					}
+
+					break;
 				}
-
+				
 				break;
 			case R.id.attend_All:
 				if (datadealer_recomendation.size() > 0) {

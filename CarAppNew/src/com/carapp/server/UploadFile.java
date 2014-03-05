@@ -122,6 +122,7 @@ public class UploadFile extends AsyncTask<String, Integer, String> {
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity getresponse = response.getEntity();
 			String responseData = EntityUtils.toString(getresponse);
+			Log.e("UploadFile", responseData);
 			try {
 				JSONObject json = new JSONObject(responseData);
 				if (json.getString("status").equals("success")) {
@@ -160,6 +161,7 @@ public class UploadFile extends AsyncTask<String, Integer, String> {
 		if (serverResponseMessage.equals("file uploaded successfully.")) {
 			Toast.makeText(context, serverResponseMessage, Toast.LENGTH_LONG)
 					.show();
+			carAppSession.setCurrentUploadFileStatus(null);
 			((Activity) context).finish();
 			MainActivity.mainactivity.finish();
 			CustomerDataActivity.customerdata.finish();

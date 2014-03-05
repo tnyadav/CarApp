@@ -293,6 +293,7 @@ protected void onResume() {
 
 	@SuppressLint("DefaultLocale")
 	private void getDetail(final String csId, final int identifire) {
+		
 		result = "";
 
 		MultipartEntity entity = new MultipartEntity();

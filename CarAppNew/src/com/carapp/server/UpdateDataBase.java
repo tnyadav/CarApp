@@ -155,7 +155,7 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 
 		// ***********************************************************************
 		paramList.addPart("display",new StringBody(jobData.getDiplay()));
-		
+		//************************************************************************
 		paramList.addPart("dealer_recommendations",new StringBody(jobData.getDealer_recommendations()));
 		paramList.addPart("cust_approved_work",new StringBody(jobData.getCust_approved_work()));
 
@@ -219,7 +219,7 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 					
 					@Override
 					public void ok() {*/
-						
+				carAppSession.setCurrentUploadFileStatus(PdfInfo.status.DATABASEUPDATED);
 						new UploadFile(context, PdfInfo.path,carAppSession).execute("");
 				/*	}
 				});*/

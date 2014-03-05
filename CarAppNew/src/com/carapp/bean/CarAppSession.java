@@ -1,5 +1,7 @@
 package com.carapp.bean;
 
+import com.carapp.util.PdfInfo.status;
+
 import android.app.Application;
 
 public class CarAppSession extends Application {
@@ -7,6 +9,8 @@ public class CarAppSession extends Application {
 	private CustomerData customerData;
 	private WorkAssissment workAssissment;
 	private JobData jobData;
+	private status currentUploadFileStatus;
+	
 	
 	
 	
@@ -29,6 +33,12 @@ public class CarAppSession extends Application {
 		this.jobData = jobData;
 	}
 	
+	public status getCurrentUploadFileStatus() {
+		return currentUploadFileStatus;
+	}
+	public void setCurrentUploadFileStatus(status currentUploadFileStatus) {
+		this.currentUploadFileStatus = currentUploadFileStatus;
+	}
 	public void removeSavedData() {
 		this.customerData = null;
 		this.workAssissment = null;

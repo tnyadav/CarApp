@@ -26,8 +26,11 @@ import android.widget.Toast;
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.JobData;
 import com.carapp.server.CreatePdf;
+import com.carapp.server.UpdateDataBase;
+import com.carapp.server.UploadFile;
 import com.carapp.util.JobDataDetail;
 import com.carapp.util.PdfInfo;
+import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
 public class JobDataExitActivity extends Activity {
@@ -60,6 +63,7 @@ public class JobDataExitActivity extends Activity {
 		setContentView(R.layout.job_data_exit);
 		datacust_approved_work = new ArrayList<String>();
 		context = this;
+		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
 		jobData=((CarAppSession)getApplication()).getJobData();
 		Log.e("jobData", ""+jobData);
 		setcontent();
@@ -175,11 +179,26 @@ public class JobDataExitActivity extends Activity {
 				 * }
 				 */
 				else if (isCustomerSignaturedraw && isSalePersonSignaturedraw) { 
+					
 					setNewData();
 					if (isDataFiledUpdated(jobData)) {
-						// Toast.makeText(context, "completed",
-						// Toast.LENGTH_LONG).show();
-
+						
+					
+						status currentStatus = ((CarAppSession) getApplication()).getCurrentUploadFileStatus();
+						Log.e("status", ""+currentStatus);
+						Toast.makeText(context, ""+currentStatus, 1).show();
+						
+						switch (currentStatus) {
+						case PDFCREATED:
+							new UpdateDataBase(context, "update_vc",
+									((CarAppSession) getApplication())).execute("");
+							break;
+						case DATABASEUPDATED:
+							new UploadFile(context, PdfInfo.path,
+									((CarAppSession) getApplication())).execute("");
+							break;
+						case FILESUPLOADED:
+						
 						jobData.setCust_approved_work(TextUtils.join(",",
 								datacust_approved_work));
 						// UploadDataInfo.radiodata=radiogrouptext;
@@ -189,7 +208,9 @@ public class JobDataExitActivity extends Activity {
 						
 						((CarAppSession)getApplication()).setJobData(jobData);
 						new CreatePdf(context, "update_vc",((CarAppSession)getApplication())).execute("");
+						break;
 
+						}
 					} else {
 						Toast.makeText(context, "Fill all Data",
 								Toast.LENGTH_LONG).show();

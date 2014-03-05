@@ -22,7 +22,11 @@ import android.widget.Toast;
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.JobData;
 import com.carapp.server.CreatePdf;
+import com.carapp.server.UpdateDataBase;
+import com.carapp.server.UploadFile;
 import com.carapp.util.JobDataDetail;
+import com.carapp.util.PdfInfo;
+import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
 public class JobDataEditActivity extends Activity {
@@ -50,6 +54,7 @@ public class JobDataEditActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.job_data_edit);
 		context = this;
+		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
 		this.jobData=((CarAppSession)getApplication()).getJobData();
 		radiogrouptext = "";
 		new ArrayList<String>();
@@ -138,6 +143,10 @@ public class JobDataEditActivity extends Activity {
 			
 
 			case R.id.submit:
+				
+				
+				
+				
 				 if (Quotation1.getText().length() < 1
 						|| Quotation2.getText().length() < 1) {
 					Toast.makeText(context, "Fill all quotation fields",
@@ -145,7 +154,21 @@ public class JobDataEditActivity extends Activity {
 					return;
 				} else {
 					
-
+					status currentStatus = ((CarAppSession) getApplication()).getCurrentUploadFileStatus();
+					Log.e("status", ""+currentStatus);
+					Toast.makeText(context, ""+currentStatus, 1).show();
+					
+					switch (currentStatus) {
+					case PDFCREATED:
+						new UpdateDataBase(context, "edit_csd",
+								((CarAppSession) getApplication())).execute("");
+						break;
+					case DATABASEUPDATED:
+						new UploadFile(context, PdfInfo.path,
+								((CarAppSession) getApplication())).execute("");
+						break;
+					case FILESUPLOADED:
+						
 					jobData.setCust_approved_work(TextUtils.join(",",datacust_approved_work)); 
 					jobData.setDealer_recommendations(TextUtils.join(",", datadealer_recomendation));
 					jobData.setRadiodata(radiogrouptext);
@@ -157,7 +180,7 @@ public class JobDataEditActivity extends Activity {
 						
 						new CreatePdf(context, "edit_csd",((CarAppSession)getApplication())).execute("");
 						
-					
+					}
 				}
 
 				break;

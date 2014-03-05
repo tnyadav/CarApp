@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
+    <dimen name="first_screen_label_width">100dp</dimen>
+    <dimen name="lavel_size">20dp</dimen>
+    <dimen name="lavel_size_small">15dp</dimen>
+     <dimen name="lavel_size_medium">18dp</dimen>
+     <dimen name="lavel_size_header">25dp</dimen>
+    <dimen name="levelwidth">80dp</dimen>
+    <dimen name="box_width">250dp</dimen>
+   
+</resources>
