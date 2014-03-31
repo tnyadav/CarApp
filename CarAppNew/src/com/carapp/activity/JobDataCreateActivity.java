@@ -244,6 +244,7 @@ public class JobDataCreateActivity extends Activity {
 							jobData.setObservations(observations.getText().toString());
 							jobData.setDiplay(entryInList);
 							Log.e("jobData", ""+jobData);
+							((CarAppSession)getApplication()).setJobData(jobData);
 							Toast.makeText(context, "done", 3).show();
 							
 							

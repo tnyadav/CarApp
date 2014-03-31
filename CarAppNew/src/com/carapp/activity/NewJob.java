@@ -253,18 +253,19 @@ protected void onResume() {
 									checkoutList = new ArrayList<Ragistration>();
 									jsonArray= jsonObject
 											.optJSONArray("checkedout_list");
-									for (int i = 0; i < jsonArray.length(); i++) {
-										JSONObject jObject = jsonArray
-												.optJSONObject(i);
-										Ragistration ragistration = new Ragistration(
-												jObject.optString("reg_plate_no"), jObject
-														.optString("csd_id"),jObject
-														.optString("display"));
-										checkoutList.add(ragistration);
-										
-										
+									if (jsonArray!=null) {
+										for (int i = 0; i < jsonArray.length(); i++) {
+											JSONObject jObject = jsonArray
+													.optJSONObject(i);
+											Ragistration ragistration = new Ragistration(
+													jObject.optString("reg_plate_no"), jObject
+															.optString("csd_id"),jObject
+															.optString("display"));
+											checkoutList.add(ragistration);
+											
+											
+										}	
 									}
-									
 									adapter = new ListViewAdapter(context, getDisplayList(list));
 									
 
@@ -496,12 +497,15 @@ protected void onResume() {
 	}
 	private String checkRegistrationNo(String noPlate,List<Ragistration> list) {
 		String  csId=null;
-		for (Ragistration wp : list) {
-			if (wp.getRegistrationPlateNumber().equalsIgnoreCase(noPlate)) {
-				csId=wp.getCsdId();
-				break;
-			}
+		if (list!=null && list.size()>0) {
+			for (Ragistration wp : list) {
+				if (wp.getRegistrationPlateNumber().equalsIgnoreCase(noPlate)) {
+					csId=wp.getCsdId();
+					break;
+				}
+			}	
 		}
+		
 	return csId;
 	}
 	

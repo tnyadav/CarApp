@@ -463,7 +463,7 @@ public class CustomerDataActivity extends Activity {
 	protected void onResume() {
 		
 		super.onResume();
-		//UIUtils.deleteFiles();
+		UIUtils.deleteFiles();
 	}
 	private void inflateEditRow(final String value, final LinearLayout layout,
 			final ArrayList<String> list) {

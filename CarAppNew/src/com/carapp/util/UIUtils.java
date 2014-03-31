@@ -52,7 +52,7 @@ public class UIUtils {
 
 		}
 	}
-/*	public static void deleteFiles() {
+	public static void deleteFiles() {
 
 		File file = new File(PdfInfo.path);
 
@@ -64,7 +64,7 @@ public class UIUtils {
 			} catch (IOException e) {
 			}
 		}
-	}*/
+	}
 /*	public void copyDirectory(File sourceLocation, File targetLocation)
 			throws IOException {
 
