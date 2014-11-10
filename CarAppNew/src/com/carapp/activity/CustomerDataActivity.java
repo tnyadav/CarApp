@@ -22,6 +22,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -30,6 +32,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +67,9 @@ public class CustomerDataActivity extends Activity {
 	Intent i;
     private CustomerData customerData; 
     private ArrayList<String> datacust_reson_for_visit; 
+    
+    //
+    private Spinner fleet;
 	
   @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +128,23 @@ public class CustomerDataActivity extends Activity {
 				}
 			}
 		});
+        fleet=(Spinner)findViewById(R.id.fleet);
+        fleet.setOnItemSelectedListener(new OnItemSelectedListener() {
 
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				etcompany.setText("");
+				etcompany.setEnabled(false);
+				companyRadio.setChecked(false);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		})
 		etAddress = (EditText) findViewById(R.id.address);
 		etAddress.addTextChangedListener(textwatcher);
 

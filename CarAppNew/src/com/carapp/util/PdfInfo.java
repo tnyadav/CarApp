@@ -26,7 +26,9 @@ public class PdfInfo {
 	//public static String newjobcard = "http://carapp.dyndns.org/carapp/mobile_webservices/mobile_webservice.php";
 	public static String newjobcard = "http://techsoftlabs.com/carapp/mobile_webservices/mobile_webservice.php";
 	public  static final String RegistrationList= "http://techsoftlabs.com/carapp/mobile_webservices/getlist.php";
-	public  static final String UploadFiles = "http://techsoftlabs.com/carapp/mobile_webservices/carapp_uploadfiles.php";
+	//public  static final String UploadFiles = "http://techsoftlabs.com/carapp/mobile_webservices/carapp_uploadfiles.php";
+	public  static final String UploadFiles = "http://techsoftlabs.com/taskdev/carapp/carapp_uploadfiles.php";
+	
 	public static int mode=0;
 	public static boolean display=true;
 	
