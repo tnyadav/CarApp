@@ -287,47 +287,36 @@ public class JobDataCreateActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
 		super.onActivityResult(requestCode, resultCode, data);
-		String value;
-	/*	if (requestCode == 1001 && resultCode == RESULT_OK) {
-
-			value = data.getStringExtra("position");
-			if (!isStringAdded(value, datacust_reson_for_visit)) {
-				//datacust_reson_for_visit.add(value);
-				inflateEditRow(value, layoutlinear_cust_reson_for_visit,
-						datacust_reson_for_visit,0);
-			} else {
-				Toast.makeText(context, "Allready Added", Toast.LENGTH_SHORT)
-						.show();
+		String []value= data.getStringArrayExtra("position");;
+		
+		/*
+		 * if (requestCode == 1001 && resultCode == RESULT_OK) {
+		 * 
+		 * value = data.getStringArrayExtra("position"); if
+		 * (!isStringAdded(value, datacust_reson_for_visit)) {
+		 * //datacust_reson_for_visit.add(value); inflateEditRow(value,
+		 * layoutlinear_cust_reson_for_visit, datacust_reson_for_visit,0); }
+		 * else { Toast.makeText(context, "Allready Added", Toast.LENGTH_SHORT)
+		 * .show(); }
+		 * 
+		 * } else
+		 */if (requestCode == 1002 && resultCode == RESULT_OK) {
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datadealer_recomendation)) {
+					inflateEditRow(value[i], layoutlinear_deaer_recomendation,
+							datadealer_recomendation, 0);
+				}
 			}
-
-		} else */if (requestCode == 1002 && resultCode == RESULT_OK) {
-
-			value = data.getStringExtra("position");
-			if (!isStringAdded(value, datadealer_recomendation)) {
-				//datadealer_recomendation.add(value);
-				inflateEditRow(value, layoutlinear_deaer_recomendation,
-						datadealer_recomendation,0);
-			} else {
-				Toast.makeText(context, "Allready Added", Toast.LENGTH_SHORT)
-						.show();
-			}
+			
+			
 
 		} else if (requestCode == 1003 && resultCode == RESULT_OK) {
-
-			value = data.getStringExtra("position");
-
-				if (!isStringAdded(value, datacust_approved_work)) {
-
-					inflateEditRow(value, layoutlinear_cust_approved_work,
-							datacust_approved_work,1);
-					//datacust_approved_work.add(value);
-
-					
-
-				} else {
-					Toast.makeText(context, "Allready Added",
-							Toast.LENGTH_SHORT).show();
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datacust_approved_work)) {
+					inflateEditRow(value[i], layoutlinear_cust_approved_work,
+							datacust_approved_work, 1);
 				}
+			}
 			
 
 		} else if (requestCode == 1004 && resultCode == RESULT_OK) {
@@ -453,13 +442,13 @@ public class JobDataCreateActivity extends Activity {
 
 	private boolean isStringAdded(String value, ArrayList<String> list) {
 		boolean added = false;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
+	
+			if (list.contains(value)) {
 
 				added = true;
 			}
 
-		}
+		
 		return added;
 
 	}

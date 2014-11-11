@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/list_layout_headertext"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
@@ -30,9 +30,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/list_lbutton"
-            android:text="Attend to all"
+            android:text="OK"
             android:textColor="@color/white"
             android:textSize="@dimen/lavel_size_header"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textStyle="bold" />
 
     </LinearLayout>

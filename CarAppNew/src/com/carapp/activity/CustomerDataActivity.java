@@ -141,10 +141,10 @@ public class CustomerDataActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+				
 				
 			}
-		})
+		});
 		etAddress = (EditText) findViewById(R.id.address);
 		etAddress.addTextChangedListener(textwatcher);
 
