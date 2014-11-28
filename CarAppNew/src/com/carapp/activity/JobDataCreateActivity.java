@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -31,7 +32,7 @@ import com.carapp.util.PdfInfo;
 import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
-public class JobDataCreateActivity extends Activity {
+public class JobDataCreateActivity extends BaseActivity {
 
 	private Button /*btcust_reson_for_visit*/ btdealer_recomendation,
 			btcust_approved_work;
@@ -61,7 +62,7 @@ public class JobDataCreateActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.job_data_create);
+		setContentView(R.layout.activity_job_data_create);
 		context = this;
 		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
 		radiogrouptext = "";
@@ -167,20 +168,20 @@ public class JobDataCreateActivity extends Activity {
 			case R.id.cust_reson_for_visit:
 
 				Intent i = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i.putExtra("listname", 0);
 				startActivityForResult(i, 1001);
 				break;
 			case R.id.deaer_recomendation:
 				Intent i1 = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i1.putExtra("listname", 1);
 				startActivityForResult(i1, 1002);
 				break;
 
 			case R.id.cust_approved_work:
 				Intent i11 = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i11.putExtra("listname", 2);
 				startActivityForResult(i11, 1003);
 				break;
@@ -287,7 +288,7 @@ public class JobDataCreateActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
 		super.onActivityResult(requestCode, resultCode, data);
-		String []value= data.getStringArrayExtra("position");;
+		String []value= data.getStringArrayExtra("position");
 		
 		/*
 		 * if (requestCode == 1001 && resultCode == RESULT_OK) {
@@ -370,7 +371,7 @@ public class JobDataCreateActivity extends Activity {
 		final TextView textvalue = (TextView) rowView
 				.findViewById(R.id.list_item_1_textview);
 		textvalue.setText(value);
-		final Button delete = (Button) rowView
+		final ImageButton delete = (ImageButton) rowView
 				.findViewById(R.id.list_item_1_delete);
 		delete.setOnClickListener(new OnClickListener() {
 
@@ -454,13 +455,7 @@ public class JobDataCreateActivity extends Activity {
 	}
 
 	private void removeFromlist(String value, ArrayList<String> list) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
-
-				list.remove(i);
-			}
-
-		}
+		list.remove(value);
 	}
 
 	@Override
@@ -476,5 +471,10 @@ public class JobDataCreateActivity extends Activity {
 		radioGroupDisable();
 			
 			
+	}
+
+	@Override
+	protected void setTitleBar() {
+		getActionBar().setTitle("Job Data");
 	}
 }

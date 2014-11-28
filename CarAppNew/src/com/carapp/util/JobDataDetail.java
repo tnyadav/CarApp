@@ -21,7 +21,7 @@ public class JobDataDetail {
 		reson_for_visit.add("Locknut Replacement");
 		reson_for_visit.add("Tow bar");
 		reson_for_visit.add("Come back");
-
+		reson_for_visit.add("Other");
 		return reson_for_visit;
 
 	}

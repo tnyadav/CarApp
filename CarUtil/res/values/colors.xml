@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+      <color name="text_blue">#0A6FB3</color>
+    <color name="text_gray">#878787</color>
+    <color name="text_normal">#555555</color>
+     <color name="white">#ffffffff</color> 
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="actionbar_bg">#28495E</color>
+    <color name="actionbar_bg_presed">#255B7C</color>
+   <!--  <color name="background">#137393</color> -->
+    <color name="background">#ffffff</color>
+    <color name="gray">#E5E3E2</color>
+
+</resources>

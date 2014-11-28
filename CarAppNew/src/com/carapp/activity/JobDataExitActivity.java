@@ -3,7 +3,6 @@ package com.carapp.activity;
 import java.io.File;
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,6 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -28,12 +28,11 @@ import com.carapp.bean.JobData;
 import com.carapp.server.CreatePdf;
 import com.carapp.server.UpdateDataBase;
 import com.carapp.server.UploadFile;
-import com.carapp.util.JobDataDetail;
 import com.carapp.util.PdfInfo;
 import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
-public class JobDataExitActivity extends Activity {
+public class JobDataExitActivity extends BaseActivity {
 
 	private Button btcust_approved_work;
 
@@ -60,7 +59,7 @@ public class JobDataExitActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.job_data_exit);
+		setContentView(R.layout.activity_job_data_exit);
 		datacust_approved_work = new ArrayList<String>();
 		context = this;
 		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
@@ -145,7 +144,7 @@ public class JobDataExitActivity extends Activity {
 
 			case R.id.cust_approved_work:
 				Intent i11 = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i11.putExtra("listname", 2);
 				startActivityForResult(i11, 1003);
 				break;
@@ -231,12 +230,12 @@ public class JobDataExitActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		String value;
+		String []value= data.getStringArrayExtra("position");
 		if (requestCode == 1003 && resultCode == RESULT_OK) {
 
-			value = data.getStringExtra("position");
+			//value = data.getStringExtra("position");
 
-			if (value.equals("all")) {
+			/*if (value.equals("all")) {
 				layoutlinear_cust_approved_work.removeViews(0,
 						layoutlinear_cust_approved_work.getChildCount() - 1);
 				datacust_approved_work.clear();
@@ -263,7 +262,17 @@ public class JobDataExitActivity extends Activity {
 					Toast.makeText(context, "Allready Added",
 							Toast.LENGTH_SHORT).show();
 				}
+			}*/
+			
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datacust_approved_work)) {
+					
+					inflateEditRow(value[i], layoutlinear_cust_approved_work,
+							datacust_approved_work);
+				}
 			}
+			unableToAssist.setChecked(false);
+			
 
 		} else if (requestCode == 1004 && resultCode == RESULT_OK) {
 			File imgFile = new File(PdfInfo.path + "PhotoCustSIG.jpeg");
@@ -313,7 +322,7 @@ public class JobDataExitActivity extends Activity {
 		final TextView textvalue = (TextView) rowView
 				.findViewById(R.id.list_item_1_textview);
 		textvalue.setText(value);
-		final Button delete = (Button) rowView
+		final ImageButton delete = (ImageButton) rowView
 				.findViewById(R.id.list_item_1_delete);
 		delete.setOnClickListener(new OnClickListener() {
 
@@ -329,6 +338,7 @@ public class JobDataExitActivity extends Activity {
 
 		// Inflate at the end of all rows but before the "Add new" button
 		layout.addView(rowView, layout.getChildCount() - 1);
+		list.add(value);
 	}
 
 	
@@ -341,25 +351,22 @@ public class JobDataExitActivity extends Activity {
 
 	private boolean isStringAdded(String value, ArrayList<String> list) {
 		boolean added = false;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
+		/*for (int i = 0; i < list.size(); i++) {
+		if (list.get(i).equals(value)) {
 
-				added = true;
-			}
-
+			added = true;
 		}
+
+	}*/
+	if (list.contains(value)) {
+		added = true;
+	}
 		return added;
 
 	}
 
 	private void removeFromlist(String value, ArrayList<String> list) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
-
-				list.remove(i);
-			}
-
-		}
+		list.remove(value);
 	}
 
 	private void setNewData() {
@@ -529,5 +536,10 @@ public class JobDataExitActivity extends Activity {
 			
 			return false;
 		}
+	}
+	@Override
+	protected void setTitleBar() {
+		getActionBar().setTitle("Job Data");
+		
 	}
 }

@@ -2,11 +2,15 @@ package com.example.tnutil;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,19 +19,26 @@ import com.car.tnutil.R;
 
 public class Util {
 	public static void showCustomDialog( final Context activity,final String strTitle,final String strMsg,final String ok,final String cancel,final Callback callback) {
-			final Dialog dialog = new Dialog(activity,
-				android.R.style.Theme_Translucent);
+			final Dialog dialog = new Dialog(activity/*,
+				android.R.style.Theme_Translucent*/);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-		dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+		//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 		dialog.setCancelable(true);
 		dialog.setContentView(R.layout.dialog);
 
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(dialog.getWindow().getAttributes());
+		lp.width = getScreenWidth(activity);
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+		
 		TextView title = (TextView) dialog.findViewById(R.id.title);
 		title.setText(strTitle);
 		TextView msg = (TextView) dialog.findViewById(R.id.msg);
 		msg.setText(strMsg);
+		//title.setTextColor(R.color.white);
 		Button btnSearch = (Button) dialog.findViewById(R.id.btnsearch);
 		btnSearch.setText(ok);
 		Button btnCancel = (Button) dialog.findViewById(R.id.btncancel);
@@ -54,18 +65,25 @@ public class Util {
 
 		dialog.show();
 	
-	
+		dialog.getWindow().setAttributes(lp);
+
 		
 	}
 	public static void showCustomDialog( final Context activity,final String strTitle,final String strMsg,final Callback callback) {
-		final Dialog dialog = new Dialog(activity,
-			android.R.style.Theme_Translucent);
+		final Dialog dialog = new Dialog(activity/*,
+			android.R.style.Theme_Translucent*/);
 	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	
 	dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-	dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+	//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 	dialog.setCancelable(true);
 	dialog.setContentView(R.layout.dialog);
+
+	
+	WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	lp.copyFrom(dialog.getWindow().getAttributes());
+	lp.width = getScreenWidth(activity);
+	lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
 	TextView title = (TextView) dialog.findViewById(R.id.title);
 	title.setText(strTitle);
@@ -97,18 +115,25 @@ public class Util {
 
 	dialog.show();
 
+	dialog.getWindow().setAttributes(lp);
 
 	
 }
 	public static void showCustomDialog( final Context activity,final String strTitle,final String strMsg,final Callback1 callback) {
-		final Dialog dialog = new Dialog(activity,
-			android.R.style.Theme_Translucent);
+		final Dialog dialog = new Dialog(activity/*,
+			android.R.style.Theme_Translucent*/);
 	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	
 	dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-	dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+	//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 	dialog.setCancelable(true);
 	dialog.setContentView(R.layout.dialog1);
+
+	
+	WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	lp.copyFrom(dialog.getWindow().getAttributes());
+	lp.width = getScreenWidth(activity);
+	lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
 	TextView title = (TextView) dialog.findViewById(R.id.title);
 	title.setText(strTitle);
@@ -129,18 +154,25 @@ public class Util {
 
 	dialog.show();
 
+	dialog.getWindow().setAttributes(lp);
 
 	
 }
 	public static void showCustomDialogWithoutButton( final Context activity,final String strTitle,final String strMsg,final Callback2 callback) {
-		final Dialog dialog = new Dialog(activity,
-			android.R.style.Theme_Translucent);
+		final Dialog dialog = new Dialog(activity/*,
+			android.R.style.Theme_Translucent*/);
 	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	
 	dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-	dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+	//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 	dialog.setCancelable(true);
 	dialog.setContentView(R.layout.dialog2);
+	
+	WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	lp.copyFrom(dialog.getWindow().getAttributes());
+	lp.width = getScreenWidth(activity);
+	lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
 
 	TextView title = (TextView) dialog.findViewById(R.id.title);
 	title.setText(strTitle);
@@ -150,18 +182,24 @@ public class Util {
 	//dialog.dismiss();
 	dialog.show();
 
+	dialog.getWindow().setAttributes(lp);
 
 	
 }
 	public static void showCustomDialog( final Context activity,final String strTitle,final String strMsg) {
-		final Dialog dialog = new Dialog(activity,
-			android.R.style.Theme_Translucent);
+		final Dialog dialog = new Dialog(activity/*,
+			android.R.style.Theme_Translucent*/);
 	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	
 	dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-	dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+	//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 	dialog.setCancelable(true);
 	dialog.setContentView(R.layout.dialog1);
+	
+	WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	lp.copyFrom(dialog.getWindow().getAttributes());
+	lp.width = getScreenWidth(activity);
+	lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
 	TextView title = (TextView) dialog.findViewById(R.id.title);
 	title.setText(strTitle);
@@ -181,19 +219,26 @@ public class Util {
 	
 
 	dialog.show();
+	dialog.getWindow().setAttributes(lp);
 
 
 	
 }
 	public static void showCustomDialog( final Context activity,final String strMsg) {
-		final Dialog dialog = new Dialog(activity,
-			android.R.style.Theme_Translucent);
+		final Dialog dialog = new Dialog(activity/*,
+			android.R.style.Theme_Translucent*/);
 	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	
 	dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-	dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
+	//dialog.getWindow().clearFlags(LayoutParams.FLAG_DIM_BEHIND);
 	dialog.setCancelable(true);
 	dialog.setContentView(R.layout.dialog1);
+
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(dialog.getWindow().getAttributes());
+		lp.width = getScreenWidth(activity);
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
 
 	TextView title = (TextView) dialog.findViewById(R.id.title);
 
@@ -213,7 +258,7 @@ public class Util {
 	
 
 	dialog.show();
-
+	dialog.getWindow().setAttributes(lp);
 
 	
 }
@@ -233,5 +278,13 @@ public class Util {
 	public interface Callback2 {
 		public void ok( Dialog dialog);
 		}
-	
+	private static int getScreenWidth(Context context) {
+		 Resources res = context.getResources();
+		 DisplayMetrics metrics = res.getDisplayMetrics();
+		int displayWidth = res.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? Math
+				.max(metrics.widthPixels, metrics.heightPixels) : Math.min(
+				metrics.widthPixels, metrics.heightPixels);
+		return (int) (displayWidth*.85);
+		
+	}
 }

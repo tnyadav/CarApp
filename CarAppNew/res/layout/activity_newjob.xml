@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+    <!-- <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/header_back"
+        android:gravity="center"
+        android:text="Job Card"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"
+        android:textSize="@dimen/lavel_size_header"
+        android:textStyle="bold" /> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_padding_medium"
+            android:layout_marginRight="@dimen/layout_padding_medium"
+            android:layout_marginTop="@dimen/layout_padding_medium"
+           >
+
+            <EditText
+                android:id="@+id/car_no_plate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/layout_padding_medium"
+                android:layout_weight="1"
+                android:background="@drawable/edittext"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size_header" />
+
+            <Button
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/red_button"
+                android:onClick="check"
+                android:text="Check"
+                android:textColor="@color/background"
+                android:textSize="@dimen/lavel_size_header"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+<LinearLayout
+    android:id="@+id/button_Container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/layout_padding_medium"
+    android:layout_marginRight="@dimen/layout_padding_medium"
+    android:layout_marginTop="@dimen/layout_padding_medium"
+    android:orientation="horizontal"
+    android:weightSum="2" >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="@dimen/layout_padding_small"
+                android:layout_weight="1"
+                android:background="@drawable/red_button"
+                android:onClick="editExistingJob"
+                android:text="Edit existing job"
+                android:textColor="@color/background"
+                android:textSize="@dimen/lavel_size_medium"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="@dimen/layout_padding_small"
+                android:layout_weight="1"
+                android:background="@drawable/red_button"
+                android:onClick="proceedToCheckout"
+                android:text="Proceed to checkout"
+                android:textColor="@color/background"
+                android:textSize="@dimen/lavel_size_medium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/layout_padding_medium"
+            android:layout_marginLeft="@dimen/layout_padding_medium"
+            android:layout_marginRight="@dimen/layout_padding_medium"
+            android:layout_marginTop="@dimen/layout_padding_medium"
+            android:background="@drawable/cell"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="Existing Job Cards"
+                android:background="@color/gray"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/layout_padding_small"
+                android:textSize="@dimen/lavel_size_header"
+                android:textStyle="bold" />
+
+           <!--  <Button
+                android:id="@+id/button1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layout_padding_small"
+                android:background="@drawable/red_button"
+                android:onClick="checkOut"
+                android:text="Check-out"
+                android:textColor="@color/white"
+                android:textStyle="bold" /> -->
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#E5E3E2"
+                android:dividerHeight=".25dp"
+                android:layout_weight="1"
+                android:cacheColorHint="@android:color/transparent"
+                android:scrollbars="none" >
+            </ListView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/layout_padding_small"
+            android:background="@drawable/red_button"
+            android:onClick="exit"
+            android:text="EXIT"
+            android:textColor="@color/background"
+            android:textSize="@dimen/lavel_size_header"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

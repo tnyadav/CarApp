@@ -33,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carapp.activity.CustomerDataActivity;
-import com.carapp.activity.MainActivity;
+import com.carapp.activity.CarViewActivity;
 import com.carapp.bean.CarAppSession;
 import com.carapp.util.PdfInfo;
 import com.example.carappnew.R;
@@ -163,7 +163,7 @@ public class UploadFile extends AsyncTask<String, Integer, String> {
 					.show();
 			carAppSession.setCurrentUploadFileStatus(null);
 			((Activity) context).finish();
-			MainActivity.mainactivity.finish();
+			CarViewActivity.mainactivity.finish();
 			CustomerDataActivity.customerdata.finish();
 		} else {
 			Toast.makeText(context, serverResponseMessage, Toast.LENGTH_LONG)

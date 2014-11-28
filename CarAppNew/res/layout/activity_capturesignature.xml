@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="4"
+        android:gravity="center_vertical|center"
+        android:text="Signature"
+        android:textColor="@color/white"
+        android:textSize="@dimen/lavel_size_header"
+        android:textStyle="bold" />
+
+    <LinearLayout
+         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="@dimen/layout_padding_medium"
+        android:layout_marginRight="@dimen/lavel_size_medium"
+        android:layout_weight="2"
+        android:background="@drawable/cell1"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/mysignature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/layout_padding_medium"
+        android:layout_marginRight="@dimen/layout_padding_medium"
+        android:layout_weight="4"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/layout_padding_medium"
+            android:layout_marginTop="@dimen/layout_padding_medium"
+            android:layout_weight="1"
+            android:background="@drawable/blue_button"
+            android:text="Clear"
+            android:textColor="@color/background"
+            android:textSize="@dimen/lavel_size_header"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/createpdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_padding_medium"
+            android:layout_marginTop="@dimen/layout_padding_medium"
+            android:layout_weight="1"
+            android:background="@drawable/blue_button"
+            android:text="Ok"
+            android:textColor="@color/background"
+            android:textSize="@dimen/lavel_size_header"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -28,13 +28,14 @@ import android.widget.Toast;
 
 import com.carapp.util.PdfInfo;
 import com.example.carappnew.R;
+import com.itextpdf.text.pdf.codec.TIFFConstants;
 
-public class CaptureSignatureActivity extends Activity {
+public class CaptureSignatureActivity extends BaseActivity {
 	signature mSignature;
 	Paint paint;
 	LinearLayout mContent;
 	Button clear, save;
-	TextView part3;
+	//TextView part3;
 	boolean isdraw = false;
 	public static byte[] byteSignature = new byte[0];
 	String title = "SalePerson's Signature";
@@ -45,12 +46,10 @@ public class CaptureSignatureActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		setContentView(R.layout.capturesignature);
+		setContentView(R.layout.activity_capturesignature);
 		intent = getIntent();
 		String For = intent.getStringExtra("For");
 		if (For.equals("customer")) {
@@ -62,24 +61,18 @@ public class CaptureSignatureActivity extends Activity {
 			signaturepath = PdfInfo.path + "PhotoSaleSIG.jpeg";
 
 		}
+		setTitleBar();
 		clear = (Button) findViewById(R.id.clear);
 		save = (Button) findViewById(R.id.createpdf);
-		part3 = (TextView) findViewById(R.id.title);
-		part3.setText(title);
+	//	part3 = (TextView) findViewById(R.id.title);
+	//	part3.setText(title);
 		mContent = (LinearLayout) findViewById(R.id.mysignature);
 
 		mSignature = new signature(this, null);
 		mContent.addView(mSignature);
 		save.setOnClickListener(onButtonClick);
 		clear.setOnClickListener(onButtonClick);
-		part3.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
-			}
-		});
+	
 	}
 
 	Button.OnClickListener onButtonClick = new Button.OnClickListener() {
@@ -215,8 +208,14 @@ public class CaptureSignatureActivity extends Activity {
 		if (requestCode == 1000 && (resultCode == RESULT_OK)) {
 
 			String s = data.getStringExtra("selection");
-			part3.setText(s);
+			getActionBar().setTitle(s);
 
 		}
+	}
+
+	@Override
+	protected void setTitleBar() {
+		
+		getActionBar().setTitle(title);
 	}
 }

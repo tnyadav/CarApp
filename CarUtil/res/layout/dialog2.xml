@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/LinearLayout1"
-    android:layout_width="@dimen/box_width"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/bgdialog" 
+    android:background="@color/gray" 
     android:orientation="vertical" >
 
-    <TextView
+     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/popupheader"
+        android:background="@color/actionbar_bg"
         android:gravity="center_horizontal|center_vertical"
         android:text="My Custom Dialog"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="@dimen/lavel_size"
+        android:padding="@dimen/layout_padding_small"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="#ffffffff"
         android:textStyle="bold" />
 
-    <TextView
+
+        <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/text_size_medium"
         android:text="TextView"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/lavel_size_medium" >
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/text_size_medium" >
+
 
     </TextView>
 

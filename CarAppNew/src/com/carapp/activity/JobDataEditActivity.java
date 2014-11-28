@@ -2,7 +2,6 @@ package com.carapp.activity;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,12 +24,11 @@ import com.carapp.bean.JobData;
 import com.carapp.server.CreatePdf;
 import com.carapp.server.UpdateDataBase;
 import com.carapp.server.UploadFile;
-import com.carapp.util.JobDataDetail;
 import com.carapp.util.PdfInfo;
 import com.carapp.util.PdfInfo.status;
 import com.example.carappnew.R;
 
-public class JobDataEditActivity extends Activity {
+public class JobDataEditActivity extends BaseActivity {
 
 	private Button btdealer_recomendation,
 			btcust_approved_work;
@@ -52,7 +51,7 @@ public class JobDataEditActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.job_data_edit);
+		setContentView(R.layout.activity_job_data_edit);
 		context = this;
 		((CarAppSession) getApplication()).setCurrentUploadFileStatus(status.FILESUPLOADED);
 		this.jobData=((CarAppSession)getApplication()).getJobData();
@@ -123,20 +122,20 @@ public class JobDataEditActivity extends Activity {
 			case R.id.cust_reson_for_visit:
 
 				Intent i = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i.putExtra("listname", 0);
 				startActivityForResult(i, 1001);
 				break;
 			case R.id.deaer_recomendation:
 				Intent i1 = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i1.putExtra("listname", 1);
 				startActivityForResult(i1, 1002);
 				break;
 
 			case R.id.cust_approved_work:
 				Intent i11 = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i11.putExtra("listname", 2);
 				startActivityForResult(i11, 1003);
 				break;
@@ -211,7 +210,11 @@ public class JobDataEditActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 			super.onActivityResult(requestCode, resultCode, data);
-		String value;
+			
+			String []value= data.getStringArrayExtra("position");
+			
+			
+	//	String value;
 		/*if (requestCode == 1001 && resultCode == RESULT_OK) {
 
 			value = data.getStringExtra("position");
@@ -226,21 +229,28 @@ public class JobDataEditActivity extends Activity {
 
 		} else*/ if (requestCode == 1002 && resultCode == RESULT_OK) {
 
-			value = data.getStringExtra("position");
-			if (!isStringAdded(value, datadealer_recomendation)) {
+			
+			/*if (!isStringAdded(value, datadealer_recomendation)) {
 				datadealer_recomendation.add(value);
 				inflateEditRow(value, layoutlinear_deaer_recomendation,
 						datadealer_recomendation);
 			} else {
 				Toast.makeText(context, "Allready Added", Toast.LENGTH_SHORT)
 						.show();
+			}*/
+			
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datadealer_recomendation)) {
+					inflateEditRow(value[i], layoutlinear_deaer_recomendation,
+							datadealer_recomendation);
+				}
 			}
 
 		} else if (requestCode == 1003 && resultCode == RESULT_OK) {
 
-			value = data.getStringExtra("position");
+			//value = data.getStringExtra("position");
 
-			if (value.equals("all")) {
+			/*if (value.equals("all")) {
 				layoutlinear_cust_approved_work.removeViews(0,
 						layoutlinear_cust_approved_work.getChildCount() - 1);
 				datacust_approved_work.clear();
@@ -250,10 +260,17 @@ public class JobDataEditActivity extends Activity {
 					inflateEditRow(JobDataDetail.getCustApprovedWork().get(i),
 							layoutlinear_cust_approved_work,
 							datacust_approved_work);
+				}*/
+			
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datacust_approved_work)) {
+					inflateEditRow(value[i], layoutlinear_cust_approved_work,
+							datacust_approved_work);
 				}
+			}
 
 			} else {
-				if (!isStringAdded(value, datacust_approved_work)) {
+				/*if (!isStringAdded(value, datacust_approved_work)) {
 
 					inflateEditRow(value, layoutlinear_cust_approved_work,
 							datacust_approved_work);
@@ -264,8 +281,16 @@ public class JobDataEditActivity extends Activity {
 				} else {
 					Toast.makeText(context, "Allready Added",
 							Toast.LENGTH_SHORT).show();
+				}*/
+				
+
+				for (int i = 0; i < value.length; i++) {
+					if (!isStringAdded(value[i], datacust_approved_work)) {
+						inflateEditRow(value[i], layoutlinear_cust_approved_work,
+								datacust_approved_work);
+					}
 				}
-			}
+			
 
 		
 		} 
@@ -279,7 +304,7 @@ public class JobDataEditActivity extends Activity {
 		final TextView textvalue = (TextView) rowView
 				.findViewById(R.id.list_item_1_textview);
 		textvalue.setText(value);
-		final Button delete = (Button) rowView
+		final ImageButton delete = (ImageButton) rowView
 				.findViewById(R.id.list_item_1_delete);
 		delete.setOnClickListener(new OnClickListener() {
 
@@ -294,6 +319,7 @@ public class JobDataEditActivity extends Activity {
 
 		// Inflate at the end of all rows but before the "Add new" button
 		layout.addView(rowView, layout.getChildCount() - 1);
+		list.add(value);
 	}
 
 
@@ -313,25 +339,22 @@ public class JobDataEditActivity extends Activity {
 
 	private boolean isStringAdded(String value, ArrayList<String> list) {
 		boolean added = false;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
+		/*for (int i = 0; i < list.size(); i++) {
+		if (list.get(i).equals(value)) {
 
-				added = true;
-			}
-
+			added = true;
 		}
+
+	}*/
+	if (list.contains(value)) {
+		added = true;
+	}
 		return added;
 
 	}
 
 	private void removeFromlist(String value, ArrayList<String> list) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
-
-				list.remove(i);
-			}
-
-		}
+		list.remove(value);
 	}
 
 	@Override
@@ -402,5 +425,11 @@ public class JobDataEditActivity extends Activity {
 }
 
 
+	}
+
+	@Override
+	protected void setTitleBar() {
+		getActionBar().setTitle("Job Data");
+		
 	}
 }

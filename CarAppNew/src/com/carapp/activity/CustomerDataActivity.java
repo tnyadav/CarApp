@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import android.app.Activity;
@@ -28,8 +29,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -44,7 +47,7 @@ import com.carapp.util.UIUtils;
 import com.example.carappnew.R;
 import com.example.tnutil.Util;
 
-public class CustomerDataActivity extends Activity {
+public class CustomerDataActivity extends BaseActivity {
 
 	private EditText etBranch, etSaleperson, etCustomer, etContactNo,
 			etcompany, etemail, etAddress, etMake, etModel, etYear, etOdometer,
@@ -75,7 +78,7 @@ public class CustomerDataActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.customer_data);
+		setContentView(R.layout.activity_customer_data);
 		LinearLayout1=(ScrollView)findViewById(R.id.LinearLayout11);
 		customerdata = this;
 		context = this;
@@ -129,6 +132,17 @@ public class CustomerDataActivity extends Activity {
 			}
 		});
         fleet=(Spinner)findViewById(R.id.fleet);
+        List<String> option= new ArrayList<String>();
+        option.add("Select");
+        option.add("Value1");
+        option.add("Value2");
+        option.add("Value3");
+        option.add("Value4");
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+				this,
+				R.layout.item_spiner,
+				option);
+        fleet.setAdapter(spinnerArrayAdapter);
         fleet.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -358,7 +372,7 @@ public class CustomerDataActivity extends Activity {
 				//captureScreen.save();
 
 				Intent i = new Intent(getApplicationContext(),
-						MainActivity.class);
+						CarViewActivity.class);
 
 				startActivity(i);
 				overridePendingTransition(R.anim.slide_in_up,
@@ -385,7 +399,7 @@ public class CustomerDataActivity extends Activity {
 			case R.id.cust_reson_for_visit:
 
 				Intent i = new Intent(getApplicationContext(),
-						CustResonForVisitList.class);
+						CustResonForVisitListActivity.class);
 				i.putExtra("listname", 0);
 				startActivityForResult(i, 1001);
 				break;
@@ -449,17 +463,26 @@ public class CustomerDataActivity extends Activity {
 		
 		super.onActivityResult(requestCode, resultCode, data);
 		
-		String value;
+		String []value= data.getStringArrayExtra("position");
 		if (requestCode == 1001 && resultCode == RESULT_OK) {
 
-			value = data.getStringExtra("position");
+		/*	value = data.getStringExtra("position");
 			if (!isStringAdded(value, datacust_reson_for_visit)) {
 				inflateEditRow(value, layoutlinear_cust_reson_for_visit,
 						datacust_reson_for_visit);
 			} else {
 				Toast.makeText(context, "Allready Added", Toast.LENGTH_SHORT)
 						.show();
+			}*/
+			
+			
+			for (int i = 0; i < value.length; i++) {
+				if (!isStringAdded(value[i], datacust_reson_for_visit)) {
+					inflateEditRow(value[i],  layoutlinear_cust_reson_for_visit,
+							datacust_reson_for_visit);
+				}
 			}
+			
 
 	}
 	}
@@ -496,7 +519,7 @@ public class CustomerDataActivity extends Activity {
 		final TextView textvalue = (TextView) rowView
 				.findViewById(R.id.list_item_1_textview);
 		textvalue.setText(value);
-		final Button delete = (Button) rowView
+		final ImageButton delete = (ImageButton) rowView
 				.findViewById(R.id.list_item_1_delete);
 		delete.setOnClickListener(new OnClickListener() {
 
@@ -524,24 +547,28 @@ public class CustomerDataActivity extends Activity {
 	
 	private boolean isStringAdded(String value, ArrayList<String> list) {
 		boolean added = false;
-		for (int i = 0; i < list.size(); i++) {
+		/*for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).equals(value)) {
 
 				added = true;
 			}
 
+		}*/
+		if (list.contains(value)) {
+			added = true;
 		}
 		return added;
 
 	}
 	private void removeFromlist(String value, ArrayList<String> list) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).equals(value)) {
+		list.remove(value);
+		
+	}
 
-				list.remove(i);
-			}
-
-		}
+	@Override
+	protected void setTitleBar() {
+		getActionBar().setTitle("Customer Data");
+		
 	}
 	
 	

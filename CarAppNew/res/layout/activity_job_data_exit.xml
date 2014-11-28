@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+    <!-- <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/header_back"
+        android:gravity="center"
+        android:text="Job Data"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/lavel_size_header"
+        android:textStyle="bold" /> -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_padding_medium"
+                android:layout_marginRight="@dimen/layout_padding_medium"
+                android:layout_marginTop="@dimen/layout_padding_large"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/customer_approved_work_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Job Details"
+                         android:background="@color/gray"
+                    android:textColor="@color/text_normal"
+                    android:padding="@dimen/layout_padding_small"
+                        android:textSize="@dimen/lavel_size_header"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_cust_approved_work"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/layout_padding_medium"
+                            android:layout_marginTop="@dimen/layout_padding_medium" >
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/cust_approved_work"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/layout_padding_medium"
+                                android:background="@drawable/blue_button"
+                                android:drawableLeft="@drawable/add"
+                                android:text=" ADD NEW"
+                                android:textColor="@color/background"
+                                android:textSize="@dimen/lavel_size_small" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/layout_padding_small"
+                        android:layout_marginTop="@dimen/layout_padding_small"
+                        android:orientation="horizontal" >
+
+                            <TextView
+                                 android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:text="Customer Invoice Amount"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/lavel_size" />
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/layout_padding_small"
+                                android:layout_marginRight="@dimen/layout_padding_small"
+                                android:text="R"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/lavel_size" />
+
+                            <EditText
+                                android:id="@+id/quotation2"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edittext"
+                                android:inputType="number"
+                                android:layout_gravity="center_vertical"
+                                android:maxLength="10"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/lavel_size_small" >
+
+                            </EditText>
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/layout_padding_small"
+                                android:text=".00"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/lavel_size_medium" />
+                       
+                    </LinearLayout>
+
+<!-- <RadioButton
+    android:id="@+id/radioButton1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/layout_padding_medium"
+    android:checked="false"
+    android:text="Valuables removed from vehicle"
+    android:textColor="@color/white"
+    android:textSize="@dimen/lavel_size" /> -->
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/lavel_size_small"
+                    android:layout_marginRight="@dimen/lavel_size_small"
+                    android:layout_marginTop="@dimen/layout_padding_small"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/Layout_observations"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_padding_medium"
+                        android:layout_marginRight="@dimen/layout_padding_medium"
+                        android:layout_marginTop="@dimen/layout_padding_small"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Observations"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/lavel_size_small" />
+
+                        <EditText
+                            android:id="@+id/et_observations"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="@dimen/layout_padding_small"
+                            android:layout_toRightOf="@+id/textView8"
+                            android:layout_weight="1"
+                            android:background="@drawable/edittext"
+                            android:gravity="top|left"
+                            android:inputType="textMultiLine"
+                            android:lines="5"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/lavel_size" >
+                        </EditText>
+                    </LinearLayout>
+
+                 
+                        <RadioButton
+                            android:id="@+id/unable_to_assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_padding_small"
+                            android:checked="false"
+                            android:text="Unable to Assist"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/lavel_size_small" />
+
+                </LinearLayout>
+
+ <LinearLayout
+    android:id="@+id/update_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/layout_padding_medium"
+    android:layout_marginRight="@dimen/layout_padding_medium"
+    android:layout_marginTop="@dimen/layout_padding_large"
+    android:background="@drawable/cell"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/layout_padding_small"
+        android:background="@color/gray"
+        android:gravity="center"
+        android:padding="@dimen/layout_padding_small"
+        android:text="Value-Added Services"
+        android:textColor="@color/text_normal"
+        android:textSize="@dimen/lavel_size_header"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small"
+        android:weightSum="5" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding_small"
+            android:layout_weight="3"
+            android:text="Tyre Pressure Front"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+
+        <EditText
+            android:id="@+id/et_tyrepressurefront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_padding_small"
+            android:layout_marginRight="@dimen/layout_padding_small"
+            android:layout_marginTop="@dimen/layout_padding_small"
+            android:layout_weight="2"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small"
+        android:weightSum="5" >
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Tyre Pressure Back"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size"
+            android:width="@dimen/valueadded" />
+
+        <EditText
+            android:id="@+id/et_tyrepressureback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" >
+        </EditText>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_tyrespolished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_tyrespolished"
+            android:text="Tyres Polished"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small"
+        android:weightSum="5" >
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Wheel Nuts Torqued"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+
+        <EditText
+            android:id="@+id/et_wheelnutstorqued"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_wheels_cleaned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_wheels_cleaned"
+            android:text="Wheels Cleaned"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_wheealbalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_wheealbalance"
+            android:text="Wheels Balanced"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_allignmentdone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_allignmentdone"
+            android:text="Alignment Done"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_locknutreturned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_locknutreturned"
+            android:text="Lock Nut Returned"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_cartestedbysalesperson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_cartestedbysalesperson"
+            android:text="Car Tested by Salesperson"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small"
+        android:layout_marginTop="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_workinspectedbysalesperson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_workinspectedbysalesperson"
+            android:text="Work inspected by Salesperson"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_workapprovedbysalesperson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/layout_padding_small"
+            android:layout_marginRight="@dimen/layout_padding_small"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_workapprovedbysalesperson"
+            android:text="Work Approved by Salesperson"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_small"
+        android:layout_marginRight="@dimen/layout_padding_small" >
+
+        <RadioGroup
+            android:id="@+id/rbg_customersatisfied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/lavel_size" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rbg_customersatisfied"
+            android:text="Customer Satisfied"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lavel_size" />
+    </RelativeLayout>
+</LinearLayout> 
+
+                <LinearLayout
+                    
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_padding_medium"
+                    android:layout_marginRight="@dimen/layout_padding_medium"
+                    android:orientation="vertical" >
+<TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/layout_padding_small"
+                    android:layout_marginTop="@dimen/layout_padding_small"
+                    android:text="Customer Signature"
+                     android:background="@color/gray"
+                    android:textColor="@color/text_normal"
+                    android:padding="@dimen/layout_padding_small"
+                    android:textSize="@dimen/lavel_size_header"
+                    android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell" >
+
+                            <ImageView
+                                android:id="@+id/image_cust"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:layout_margin="1dp"
+                                android:src="@drawable/signaturenotfound" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/customer_sig"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/blue_button"
+                            android:drawableLeft="@drawable/capturesignatureicon"
+                            android:text="Signature"
+                            android:textColor="@color/background"
+                            android:textSize="@dimen/lavel_size_header"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/layout_padding_small"
+                    android:layout_marginTop="@dimen/layout_padding_small"
+                    android:padding="@dimen/layout_padding_small"
+                    android:text="* I declare that I am satisfied with the work that has been completed on my vehicle.\n* The vehicle was returned to me in good condition and the work carried out was according to my requirements."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                     android:layout_marginLeft="@dimen/layout_padding_medium"
+                    android:layout_marginRight="@dimen/layout_padding_medium"
+                    android:layout_marginBottom="@dimen/layout_padding_small"
+                    android:layout_marginTop="@dimen/layout_padding_small"
+                    android:text="Salesperson Signature"
+                   android:background="@color/gray"
+                    android:textColor="@color/text_normal"
+                    android:padding="@dimen/layout_padding_small"
+                    android:textSize="@dimen/lavel_size_header" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_padding_medium"
+                    android:layout_marginRight="@dimen/layout_padding_medium"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell" >
+
+                            <ImageView
+                                android:id="@+id/image_sale"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:layout_margin="1dp"
+                                android:src="@drawable/signaturenotfound" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/saleperson_sig"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/blue_button"
+                            android:drawableLeft="@drawable/capturesignatureicon"
+                            android:text="Signature"
+                            android:textColor="@color/background"
+                            android:textSize="@dimen/lavel_size_header" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/layout_padding_medium"
+                    android:layout_marginTop="@dimen/layout_padding_medium"
+                    android:background="@drawable/red_button"
+                    android:drawableLeft="@drawable/submiticon"
+                    android:text="  Submit"
+                    android:textColor="@color/background"
+                    android:textSize="@dimen/lavel_size_header" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

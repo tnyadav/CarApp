@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="first_screen_label_width">150dp</dimen>
-    <dimen name="lavel_size">25dp</dimen>
-    <dimen name="lavel_size_small">18dp</dimen>
-     <dimen name="lavel_size_header">30dp</dimen>
-    <dimen name="levelwidth">120dp</dimen>
-    <dimen name="valueadded">150dp</dimen>
+    <dimen name="first_screen_label_width">200dp</dimen>
+    
+     <dimen name="levelwidth">100dp</dimen>
+    <dimen name="valueadded">100dp</dimen> 
     <dimen name="lavel_size_medium">20dp</dimen>
-    <dimen name="box_width">450dp</dimen>
+    <dimen name="box_width">350dp</dimen>
+    
+    
+    <!--textview size  -->
+    <dimen name="lavel_size">20dp</dimen>
+    <dimen name="lavel_size_small">15dp</dimen>
+    <dimen name="lavel_size_header">20dp</dimen> 
+    
+    <dimen name="arrow_dim">120dp</dimen> 
+    
+    <dimen name="layout_padding_large">40dp</dimen>
+    <dimen name="layout_padding_medium">20dp</dimen>
+    <dimen name="layout_padding_small">10dp</dimen>
 </resources>
