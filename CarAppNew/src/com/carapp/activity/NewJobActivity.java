@@ -300,7 +300,7 @@ protected void onResume() {
 			entity.addPart("action", new StringBody("edit_vc"));
 			entity.addPart("csd_id", new StringBody(csId));
 			new AsyncWebServiceProcessingTask(context, entity,
-					"Checking if entry already exists�", new AsynckCallback() {
+					"Checking if entry already exists?", new AsynckCallback() {
 
 						@Override
 						public void run(final String result) {

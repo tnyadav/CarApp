@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F49846"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="1dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_padding_small" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/part_assesment_boxwidth"
+            android:layout_height="@dimen/part_assesment_boxwidth"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher" />
+
+        <Button
+            android:id="@+id/newPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding_small"
+            android:background="@drawable/blue_button"
+            android:drawableLeft="@android:drawable/ic_menu_camera"
+            android:text="New Photo"
+            android:textColor="@color/background"
+            android:textSize="@dimen/lavel_size_medium" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroupWorkAssisment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:gravity="center|left"
+        android:padding="@dimen/layout_padding_medium" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:padding="@dimen/layout_padding_small"
+            android:text="Position1"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/lavel_size_medium" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_padding_small"
+            android:text="Position2"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/lavel_size_medium" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_padding_small"
+            android:text="Position3"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/lavel_size_medium" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_padding_small"
+            android:text="Position4"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/lavel_size_medium" />
+    </RadioGroup>
+
+</LinearLayout>

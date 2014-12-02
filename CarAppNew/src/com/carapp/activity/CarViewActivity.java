@@ -19,7 +19,7 @@ import com.carapp.util.PdfInfo;
 import com.example.carappnew.R;
 
 @SuppressLint("SetJavaScriptEnabled")
-public class CarViewActivity extends BaseActivity {
+public class CarViewActivity extends BaseBroadcastReceiverActivity {
 
 //	TextView header;
 	WebView w;
@@ -286,7 +286,7 @@ public class CarViewActivity extends BaseActivity {
 		         
 		         ((CarAppSession)getApplication()).setWorkAssissment(workAssissment);
 
-				if (PdfInfo.mode==PdfInfo.EXIT_MODE) {
+				/*if (PdfInfo.mode==PdfInfo.EXIT_MODE) {
 					
 					Intent i = new Intent(getApplicationContext(),JobDataExitActivity.class);
 					startActivity(i);
@@ -304,7 +304,10 @@ public class CarViewActivity extends BaseActivity {
 					startActivity(i);
 					overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
 				}
-
+*/
+		         Intent i = new Intent(getApplicationContext(),PartAssismentActivity.class);
+				 startActivity(i);
+			     overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
 			}
 
 		}

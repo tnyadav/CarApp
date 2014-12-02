@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/layout_padding_large"
         android:layout_marginRight="@dimen/layout_padding_large"
-        android:background="@drawable/cell1"
+        android:background="@drawable/cell"
         android:orientation="vertical" >
 
         <TextView

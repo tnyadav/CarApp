@@ -18,4 +18,6 @@
     <dimen name="layout_padding_large">20dp</dimen>
     <dimen name="layout_padding_medium">10dp</dimen>
     <dimen name="layout_padding_small">5dp</dimen>
+    
+      <dimen name="part_assesment_boxwidth">80dp</dimen>
 </resources>

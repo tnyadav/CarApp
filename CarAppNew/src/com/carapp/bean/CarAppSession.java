@@ -1,5 +1,7 @@
 package com.carapp.bean;
 
+import java.util.List;
+
 import com.carapp.util.PdfInfo.status;
 
 import android.app.Application;
@@ -10,10 +12,17 @@ public class CarAppSession extends Application {
 	private WorkAssissment workAssissment;
 	private JobData jobData;
 	private status currentUploadFileStatus;
+	private List<PartAssisment> partAssisments;
 	
 	
 	
 	
+	public List<PartAssisment> getPartAssisments() {
+		return partAssisments;
+	}
+	public void setPartAssisments(List<PartAssisment> partAssisments) {
+		this.partAssisments = partAssisments;
+	}
 	public CustomerData getCustomerData() {
 		return customerData;
 	}

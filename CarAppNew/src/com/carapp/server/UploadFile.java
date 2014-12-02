@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Gravity;
@@ -32,6 +33,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.carapp.activity.BaseBroadcastReceiverActivity;
 import com.carapp.activity.CustomerDataActivity;
 import com.carapp.activity.CarViewActivity;
 import com.carapp.bean.CarAppSession;
@@ -162,9 +164,12 @@ public class UploadFile extends AsyncTask<String, Integer, String> {
 			Toast.makeText(context, serverResponseMessage, Toast.LENGTH_LONG)
 					.show();
 			carAppSession.setCurrentUploadFileStatus(null);
-			((Activity) context).finish();
+			/*((Activity) context).finish();
 			CarViewActivity.mainactivity.finish();
-			CustomerDataActivity.customerdata.finish();
+			CustomerDataActivity.customerdata.finish();*/
+			Intent sendIntent = new Intent();
+			sendIntent.setAction(BaseBroadcastReceiverActivity.FINISH);
+			context.sendBroadcast(sendIntent);
 		} else {
 			Toast.makeText(context, serverResponseMessage, Toast.LENGTH_LONG)
 					.show();

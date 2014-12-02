@@ -116,7 +116,7 @@
                         android:background="@drawable/blue_button"
                         android:drawableLeft="@drawable/add"
                         android:text=" ADD NEW"
-                        android:textColor="@color/white"
+                        android:textColor="@color/background"
                         android:textSize="@dimen/lavel_size_small" />
                 </LinearLayout>
 
@@ -490,13 +490,15 @@
 
                 <TextView
                     android:id="@+id/salepersonSignaturText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:text="Salesperson Signature"
-                    android:textColor="@color/white"
+                    android:background="@color/gray"
+                    android:textColor="@color/text_normal"
+                    android:padding="@dimen/layout_padding_small"
                     android:textSize="@dimen/lavel_size_header"
                     android:textStyle="bold" />
 

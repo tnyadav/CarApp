@@ -1,20 +1,16 @@
 package com.carapp.activity;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -25,11 +21,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,13 +37,12 @@ import android.widget.Toast;
 
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.CustomerData;
-import com.carapp.util.CaptureScreen;
 import com.carapp.util.PdfInfo;
 import com.carapp.util.UIUtils;
 import com.example.carappnew.R;
 import com.example.tnutil.Util;
 
-public class CustomerDataActivity extends BaseActivity {
+public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 
 	private EditText etBranch, etSaleperson, etCustomer, etContactNo,
 			etcompany, etemail, etAddress, etMake, etModel, etYear, etOdometer,
@@ -148,6 +143,7 @@ public class CustomerDataActivity extends BaseActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
+				
 				etcompany.setText("");
 				etcompany.setEnabled(false);
 				companyRadio.setChecked(false);
@@ -190,7 +186,7 @@ public class CustomerDataActivity extends BaseActivity {
 		//current time
 		etTime = (EditText) findViewById(R.id.time);
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.US);
 		String test = sdf.format(cal.getTime());
 		etTime.setText("" + test);
 		
@@ -204,7 +200,7 @@ public class CustomerDataActivity extends BaseActivity {
 		// etTime.setText(UploadDataInfo.strTime);
 		etTime = (EditText) findViewById(R.id.time);
 		Calendar cal1 = Calendar.getInstance();
-		SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm", Locale.US);
 		String test1 = sdf1.format(cal1.getTime());
 		etTime.setText(test1);
 		

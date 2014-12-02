@@ -1,7 +1,9 @@
 package com.carapp.activity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -34,4 +36,6 @@ public abstract class BaseActivity extends Activity{
 		return super.onOptionsItemSelected(item);
 	}
 protected abstract void setTitleBar();
+
+
 }
