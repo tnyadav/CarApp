@@ -27,6 +27,7 @@ public class PdfInfo {
 	public static String dayaddress = baseUrl + "day.php";
 	public static String newjobcard = baseUrl + "mobile_webservice.php";
 	public static final String RegistrationList = baseUrl + "getlist.php";
+	public static final String getfleet = baseUrl + "get_fleets.php";
 	// public static final String UploadFiles =
 	// "http://techsoftlabs.com/carapp/mobile_webservices/carapp_uploadfiles.php";
 	public static final String UploadFiles = "http://techsoftlabs.com/taskdev/carapp/carapp_uploadfiles.php";

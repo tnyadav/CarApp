@@ -161,23 +161,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_padding_small"
-                android:background="#F7F7F7"
-                android:padding="@dimen/layout_padding_small"
+                android:background="@drawable/cell"
+                android:paddingBottom="@dimen/layout_padding_small"
                 android:orientation="vertical" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center|left"
                     android:text="Company"
+                    android:background="@color/gray"
                     android:textColor="@color/white"
                     android:textSize="@dimen/lavel_size"
+                    android:padding="@dimen/layout_padding_small"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/company_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="@dimen/layout_padding_small"
                     android:orientation="horizontal" >
 
                     <CheckBox
@@ -208,6 +211,8 @@
                     android:id="@+id/fleet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_padding_small"
+                    android:layout_marginRight="@dimen/layout_padding_small"
                     android:layout_marginTop="@dimen/layout_padding_small"
                     android:background="@drawable/spiner_bg" />
             </LinearLayout>

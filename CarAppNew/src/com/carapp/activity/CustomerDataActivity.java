@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.StringBody;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -37,10 +42,17 @@ import android.widget.Toast;
 
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.CustomerData;
+import com.carapp.bean.Fleet;
+import com.carapp.bean.FleetData;
+import com.carapp.bean.JsonParser;
+import com.carapp.login.LoginTempActivity;
+import com.carapp.server.AsyncWebServiceProcessingTask;
+import com.carapp.util.AsynckCallback;
 import com.carapp.util.PdfInfo;
 import com.carapp.util.UIUtils;
 import com.example.carappnew.R;
 import com.example.tnutil.Util;
+import com.google.gson.Gson;
 
 public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 
@@ -65,7 +77,7 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 	Intent i;
     private CustomerData customerData; 
     private ArrayList<String> datacust_reson_for_visit; 
-    
+    private FleetData fleetData;
     //
     private Spinner fleet;
 	
@@ -82,6 +94,62 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 			this.customerData=((CarAppSession)getApplication()).getCustomerData();
 		}else {
 			customerData=new CustomerData();
+
+			MultipartEntity entity = new MultipartEntity();
+			try {
+				entity.addPart("action", new StringBody("get_fleets"));
+				new AsyncWebServiceProcessingTask(context, entity,
+						"Getting fleet options", new AsynckCallback() {
+
+							@Override
+							public void run(final String result) {
+								fleetData=new Gson().fromJson(result, FleetData.class);
+								
+								List<Fleet> fleetList=new ArrayList<Fleet>();
+								Fleet fleet1= new Fleet();
+								fleet1.setFleet_title("Select");
+								fleetList.add(fleet1);
+								fleetList.addAll(fleetData.getFleets());
+								
+						        ArrayAdapter<Fleet> spinnerArrayAdapter = new ArrayAdapter<Fleet>(
+						        		context,
+										R.layout.item_spiner,
+										fleetList);
+						        fleet.setAdapter(spinnerArrayAdapter);
+						        fleet.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+									@Override
+									public void onItemSelected(AdapterView<?> arg0, View arg1,
+											int arg2, long arg3) {
+										if (arg2==0) {
+												
+											etcompany.setEnabled(true);
+											companyRadio.setChecked(false);
+											
+										} else {
+											Fleet fleet=(Fleet) arg0.getItemAtPosition(arg2);
+											etcompany.setText("");
+											etcompany.setEnabled(false);
+											companyRadio.setChecked(false);
+											etemail.setText(fleet.getEmail());
+											etAddress.setText(fleet.getAddress());
+										}
+										
+									}
+
+									@Override
+									public void onNothingSelected(AdapterView<?> arg0) {
+										
+										
+									}
+								});
+							}
+						}).execute(PdfInfo.getfleet);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 		
 		setContent();
@@ -127,34 +195,7 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 			}
 		});
         fleet=(Spinner)findViewById(R.id.fleet);
-        List<String> option= new ArrayList<String>();
-        option.add("Select");
-        option.add("Value1");
-        option.add("Value2");
-        option.add("Value3");
-        option.add("Value4");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-				this,
-				R.layout.item_spiner,
-				option);
-        fleet.setAdapter(spinnerArrayAdapter);
-        fleet.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				
-				etcompany.setText("");
-				etcompany.setEnabled(false);
-				companyRadio.setChecked(false);
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				
-				
-			}
-		});
+     
 		etAddress = (EditText) findViewById(R.id.address);
 		etAddress.addTextChangedListener(textwatcher);
 
