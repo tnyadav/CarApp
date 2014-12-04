@@ -58,12 +58,12 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 
 	private EditText etBranch, etSaleperson, etCustomer, etContactNo,
 			etcompany, etemail, etAddress, etMake, etModel, etYear, etOdometer,
-			etRegistration, etDate, etTime;
+			etRegistration, etDate, etTime, etAuthNumber;
 	private String strBranch, strSaleperson, strCustomer, strContactNo,
 			strAddress, strcompany, stremail, strMake, strModel, strYear,
 			strOdomstrer, strRegistration, strDate, strTime,custresonForVisit;
 	private Button btcust_reson_for_visit;
-	private LinearLayout layoutlinear_cust_reson_for_visit;
+	private LinearLayout layoutlinear_cust_reson_for_visit,company_container,authContainer;
 	ScrollView LinearLayout1;
 	private CheckBox companyRadio;
 	private Button btnext;
@@ -71,7 +71,6 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 	DateFormat formatDateTime = DateFormat.getDateInstance();
 	Calendar dateTime = Calendar.getInstance();
 	static final int DATE_DIALOG_ID = 999;
-	public static CustomerDataActivity customerdata;
 	String emailformat = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	private Context context;
 	Intent i;
@@ -79,7 +78,8 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
     private ArrayList<String> datacust_reson_for_visit; 
     private FleetData fleetData;
     //
-    private Spinner fleet;
+    private Spinner spinerFleet;
+    private String strFleetSelection,strAuthNumber;
 	
   @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,74 +87,89 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_customer_data);
 		LinearLayout1=(ScrollView)findViewById(R.id.LinearLayout11);
-		customerdata = this;
 		context = this;
 		datacust_reson_for_visit = new ArrayList<String>();
+		
+		MultipartEntity entity = new MultipartEntity();
+		try {
+			entity.addPart("action", new StringBody("get_fleets"));
+			new AsyncWebServiceProcessingTask(context, entity,
+					"Getting fleet options", new AsynckCallback() {
+
+						@Override
+						public void run(final String result) {
+							fleetData=new Gson().fromJson(result, FleetData.class);
+							
+							List<Fleet> fleetList=new ArrayList<Fleet>();
+							Fleet fleet1= new Fleet();
+							fleet1.setFleet_title("Select");
+							fleetList.add(fleet1);
+							fleetList.addAll(fleetData.getFleets());
+							
+					        ArrayAdapter<Fleet> spinnerArrayAdapter = new ArrayAdapter<Fleet>(
+					        		context,
+									R.layout.item_spiner,
+									fleetList);
+					        spinerFleet.setAdapter(spinnerArrayAdapter);
+					        spinerFleet.setOnItemSelectedListener(onItemSelectedListener);
+					        int selectedOption = 0;
+							for (int j = 0; j < fleetList.size(); j++) {
+								if (fleetList.get(j).getFleet_title().equalsIgnoreCase(customerData.getFleetSelection())) {
+									selectedOption = j;
+								}
+							}
+							spinerFleet.setSelection(selectedOption);
+							   if (!customerData.getFleetSelection().equals("")) {
+								   spinerFleet.setEnabled(false);
+							   }
+							
+						}
+					}).execute(PdfInfo.getfleet);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		if (PdfInfo.mode==PdfInfo.EDIT_MODE || PdfInfo.mode==PdfInfo.EXIT_MODE || PdfInfo.mode==PdfInfo.CHECKOUT_MODE) {
 			this.customerData=((CarAppSession)getApplication()).getCustomerData();
 		}else {
 			customerData=new CustomerData();
 
-			MultipartEntity entity = new MultipartEntity();
-			try {
-				entity.addPart("action", new StringBody("get_fleets"));
-				new AsyncWebServiceProcessingTask(context, entity,
-						"Getting fleet options", new AsynckCallback() {
-
-							@Override
-							public void run(final String result) {
-								fleetData=new Gson().fromJson(result, FleetData.class);
-								
-								List<Fleet> fleetList=new ArrayList<Fleet>();
-								Fleet fleet1= new Fleet();
-								fleet1.setFleet_title("Select");
-								fleetList.add(fleet1);
-								fleetList.addAll(fleetData.getFleets());
-								
-						        ArrayAdapter<Fleet> spinnerArrayAdapter = new ArrayAdapter<Fleet>(
-						        		context,
-										R.layout.item_spiner,
-										fleetList);
-						        fleet.setAdapter(spinnerArrayAdapter);
-						        fleet.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-									@Override
-									public void onItemSelected(AdapterView<?> arg0, View arg1,
-											int arg2, long arg3) {
-										if (arg2==0) {
-												
-											etcompany.setEnabled(true);
-											companyRadio.setChecked(false);
-											
-										} else {
-											Fleet fleet=(Fleet) arg0.getItemAtPosition(arg2);
-											etcompany.setText("");
-											etcompany.setEnabled(false);
-											companyRadio.setChecked(false);
-											etemail.setText(fleet.getEmail());
-											etAddress.setText(fleet.getAddress());
-										}
-										
-									}
-
-									@Override
-									public void onNothingSelected(AdapterView<?> arg0) {
-										
-										
-									}
-								});
-							}
-						}).execute(PdfInfo.getfleet);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
 		}
 		
 		setContent();
 	}
+OnItemSelectedListener onItemSelectedListener = new OnItemSelectedListener() {
 
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		if (arg2==0) {
+			
+			etcompany.setEnabled(true);
+			companyRadio.setEnabled(true);
+			companyRadio.setChecked(false);
+			strFleetSelection="";
+		} else {
+			Fleet fleet=(Fleet) arg0.getItemAtPosition(arg2);
+			etcompany.setText("");
+			etcompany.setEnabled(false);
+			companyRadio.setChecked(false);
+			companyRadio.setEnabled(false);
+			etemail.setText(fleet.getEmail());
+			etAddress.setText(fleet.getAddress());
+			strFleetSelection=fleet.getFleet_title();
+		}
+		
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+};
 	void setContent() {
 
 		i = getIntent();
@@ -194,8 +209,8 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 				}
 			}
 		});
-        fleet=(Spinner)findViewById(R.id.fleet);
-     
+        spinerFleet=(Spinner)findViewById(R.id.fleet);
+        etAuthNumber=(EditText)findViewById(R.id.authNumber);
 		etAddress = (EditText) findViewById(R.id.address);
 		etAddress.addTextChangedListener(textwatcher);
 
@@ -258,6 +273,10 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 		etRegistration.setKeyListener(null);
 		etDate.setKeyListener(null);
         etTime.setKeyListener(null);
+        company_container=(LinearLayout)findViewById(R.id.company_container);
+        authContainer=(LinearLayout)findViewById(R.id.authContainer);
+        authContainer.setVisibility(View.GONE);
+        strFleetSelection=customerData.getFleetSelection();
 		
 		if (PdfInfo.mode==PdfInfo.EDIT_MODE|| PdfInfo.mode==PdfInfo.EXIT_MODE || PdfInfo.mode==PdfInfo.CHECKOUT_MODE) {
 			
@@ -314,8 +333,11 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 	            tvDate.setText("Job Edit Date");
 	            tvTime.setText("Job Edit Time");
 	            btnext.setBackgroundResource(R.drawable.arrow_down_green);
-	           
-	          
+	            spinerFleet.setOnItemSelectedListener(null);
+	            if (!customerData.getFleetSelection().equals("")) {
+	            	  authContainer.setVisibility(View.GONE);
+	                  company_container.setVisibility(View.VISIBLE);
+				}
 	        }
 		 
 		if (PdfInfo.mode==PdfInfo.EXIT_MODE) {
@@ -324,7 +346,13 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 			etAddress.setKeyListener(null);
             tvDate.setText("Job Exit Date");
             tvTime.setText("Job Exit Time");
+          
+            if (!customerData.getFleetSelection().equals("")) {
+            	  authContainer.setVisibility(View.VISIBLE);
+                  company_container.setVisibility(View.GONE);
+			}
             
+	        
 		}
 		
 		
@@ -347,6 +375,7 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 		strDate = etDate.getText().toString();
 		strTime = etTime.getText().toString();
 		custresonForVisit=TextUtils.join(",",datacust_reson_for_visit);
+		strAuthNumber=etAuthNumber.getText().toString();
 		
 
 		if (strBranch.length() > 0 && strSaleperson.length() > 0
@@ -379,6 +408,8 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 				customerData.setDate(strDate);
 				customerData.setTime(strTime);
 				customerData.setCust_resonfor_visit(custresonForVisit);
+				customerData.setFleetSelection(strFleetSelection);
+				customerData.setAuthNumber(strAuthNumber);
 				Log.e("customerData", ""+customerData);
 				((CarAppSession)getApplication()).setCustomerData(customerData);
 				/*

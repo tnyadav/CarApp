@@ -1,5 +1,7 @@
 package com.carapp.server;
 
+import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -14,6 +16,7 @@ import org.json.JSONObject;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Window;
@@ -24,6 +27,7 @@ import android.widget.TextView;
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.CustomerData;
 import com.carapp.bean.JobData;
+import com.carapp.bean.PartAssisment;
 import com.carapp.bean.WorkAssissment;
 import com.carapp.util.PdfInfo;
 import com.example.carappnew.R;
@@ -38,6 +42,7 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 	private CustomerData customerData;
 	private WorkAssissment workAssissment;
 	private JobData jobData;
+	 private List<PartAssisment> partAssisments;
 
 
 	public UpdateDataBase(Context context, String action,CarAppSession carAppSession) {
@@ -47,7 +52,7 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 		customerData=this.carAppSession.getCustomerData();
 		workAssissment=this.carAppSession.getWorkAssissment();
 		jobData=this.carAppSession.getJobData();
-
+		partAssisments=this.carAppSession.getPartAssisments();
 	}
 
 	@Override
@@ -102,7 +107,14 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 		paramList.addPart("email",new StringBody( customerData.getEmail()));
 		
 		paramList.addPart("cust_visit_reason",new StringBody(customerData.getCust_resonfor_visit()));
+		paramList.addPart("fleet_selected",new StringBody(customerData.getFleetSelection()));
+		paramList.addPart("auth_number",new StringBody(customerData.getAuthNumber()));
+		String parts_assessment="";
+		if (partAssisments!=null) {
+			 parts_assessment= TextUtils.join(",",partAssisments);
+		}
 		
+		paramList.addPart("parts_assessment",new StringBody(parts_assessment));
 		
 
 		paramList.addPart("tyre_condition_lf",new StringBody(workAssissment.getTyer_condition_lf()));

@@ -52,6 +52,7 @@ public class CarAppSession extends Application {
 		this.customerData = null;
 		this.workAssissment = null;
 		this.jobData = null;
+		this.partAssisments=null;
 	}
 	@Override
 	public String toString() {

@@ -102,6 +102,9 @@ public class NewJobActivity extends BaseActivity {
 				//	check.setVisibility(View.VISIBLE);
 					buttonContainer.setVisibility(View.GONE);
 				}
+				if (carnoplate.getText().length()==0) {
+					buttonContainer.setVisibility(View.GONE);
+				}
 			
 			}
 		});
@@ -121,7 +124,9 @@ public class NewJobActivity extends BaseActivity {
 		anim.setRepeatCount(5);
 		et.startAnimation(anim);
 	}
-
+public void clear(View v) {
+	carnoplate.setText("");
+}
 	public void check(View v) {
 		// com.carapp.util.PdfInfo.isUpdate = false;
 		CarNoPlate = carnoplate.getText().toString().trim();

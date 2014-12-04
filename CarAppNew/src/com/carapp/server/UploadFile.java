@@ -164,8 +164,8 @@ public class UploadFile extends AsyncTask<String, Integer, String> {
 			Toast.makeText(context, serverResponseMessage, Toast.LENGTH_LONG)
 					.show();
 			carAppSession.setCurrentUploadFileStatus(null);
-			/*((Activity) context).finish();
-			CarViewActivity.mainactivity.finish();
+			((Activity) context).finish();
+			/*CarViewActivity.mainactivity.finish();
 			CustomerDataActivity.customerdata.finish();*/
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(BaseBroadcastReceiverActivity.FINISH);

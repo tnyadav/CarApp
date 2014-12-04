@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.List;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,10 +15,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.CustomerData;
 import com.carapp.bean.JobData;
+import com.carapp.bean.PartAssisment;
 import com.carapp.bean.WorkAssissment;
 import com.carapp.util.PdfInfo;
 import com.carapp.util.UIUtils;
@@ -51,6 +54,7 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 	private CarAppSession carAppSession;
 	private CustomerData customerData;
 	private WorkAssissment workAssissment;
+    private List<PartAssisment> partAssisments;
 	private JobData jobData;
 
 	public CreatePdf(Context context, String action,CarAppSession carAppSession) {
@@ -66,13 +70,16 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 	}
 
 	private static void addMetaData(Document document) {
-		document.addTitle("CAR APP PDF");
+		document.addTitle("AutoQueue PDF");
 		document.addSubject("Information");
 		document.addKeywords("Java, PDF, Android");
 
 	}
 
 	private  void addContent(Document document) throws DocumentException {
+		
+		File dir = new File(PdfInfo.path);
+		File[] dirname = dir.listFiles();
 
 		// New Page***********************************************************
 		document.newPage();
@@ -82,7 +89,9 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 		subPara.add(new Paragraph("          Branch- "+ customerData.getBranch() 
 				              + "\n          Salesperson- "+ customerData.getSaleperson() 
 				              + "\n          Company- "
-				+ customerData.getCompany() + "\n          Customer- "
+				+ customerData.getCompany() + "\n          Fleet Selection- "
+				+ customerData.getFleetSelection() + "\n         Auth. Number- "
+				+ customerData.getAuthNumber() + "\n          Customer- "
 				+ customerData.getCustomer() + "\n          Contact number- "
 				+ customerData.getContactNo() + "\n          Email- "
 				+ customerData.getEmail() + "\n          Address- "
@@ -186,7 +195,35 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 		subPara.setAlignment(Element.ALIGN_CENTER);
 		document.add(subPara);
 
+		// Part Assesment*************************************************************************************************************************************
+		document.newPage();
+		subPara = new Paragraph("Part Assesment", catFont);
+		addEmptyLine(subPara, 2);
+		partAssisments=carAppSession.getPartAssisments();
+		for (PartAssisment partAssisment : partAssisments) {
+			subPara.add(new Paragraph(partAssisment.getOption(), smallBold));
+			subPara.add(new Paragraph("\n            Value- "
+				+ partAssisment.getValue(),smallBold));
+			addEmptyLine(subPara, 1);
+			try {
+				image1 = Image.getInstance(partAssisment.getImagePath());
+				image1.scaleAbsolute(400, 400);
+				image1.setAlignment(Element.ALIGN_CENTER);
+				subPara.add(image1);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		addEmptyLine(subPara, 1);
+
+		subPara.setAlignment(Element.ALIGN_CENTER);
+		document.add(subPara);
+
 		// ******************************************************************************************************************************************
+		
 		document.newPage();
 		subPara = new Paragraph("Job Data", catFont);
 		addEmptyLine(subPara, 2);
@@ -296,12 +333,11 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 
 		// *******************************************************************************************************************************
 
-		File dir = new File(PdfInfo.path);
-		File[] dirname = dir.listFiles();
+	
 
 		// ArrayList<String> filesname = new ArrayList<String>();
 		for (int i = 0; i < dirname.length; i++) {
-			if (dirname[i].getAbsolutePath().endsWith(".jpg")) {
+			if (dirname[i].getAbsolutePath().endsWith(".jpg")&&dirname[i].getAbsolutePath().contains("PartAssessment")) {
 
 				// filesname.add(dirname[i].getAbsolutePath());
 				Log.d("filepath", dirname[i].getAbsolutePath());
@@ -405,14 +441,15 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 		carAppSession.setCurrentUploadFileStatus(PdfInfo.status.PDFCREATED);
 		super.onPostExecute(result);
 		dialog.dismiss();
-		
-		Util.showCustomDialog(context, "Pdf Created",
+		Toast.makeText(context, "Pdf Created ", Toast.LENGTH_SHORT).show();
+		new UpdateDataBase(context, action,carAppSession).execute("");
+		/*Util.showCustomDialog(context, "Pdf Created",
 				"Upload Data to server ? ", "YES", "NO", new Callback() {
 
 					@Override
 					public void ok() {
 						
-						new UpdateDataBase(context, action,carAppSession).execute("");
+					
 					
 					}
 
@@ -420,7 +457,7 @@ public class CreatePdf extends AsyncTask<String, Void, String> {
 					public void cancel() {
 
 					}
-				});
+				});*/
 
 	}
 

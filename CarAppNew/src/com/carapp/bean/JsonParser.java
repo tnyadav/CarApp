@@ -42,6 +42,7 @@ public class JsonParser {
           customerData.setDate(jsonObject.optString("date"));
           customerData.setTime(jsonObject.optString("time")); 
           customerData.setCust_resonfor_visit(jsonObject.optString("cust_visit_reason"));
+          customerData.setFleetSelection(jsonObject.optString("fleet_selected"));
           
           
           

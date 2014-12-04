@@ -67,7 +67,7 @@ public class CarViewActivity extends BaseBroadcastReceiverActivity {
 				//header.setText("WORK ASSESSMENT");
 				getActionBar().setTitle("WORK ASSESSMENT");
 			}else {
-				getActionBar().setTitle("Car ASSESSMENT");
+				getActionBar().setTitle("CAR ASSESSMENT");
 			}
 			w.loadUrl("file:///android_asset/carapp.html");
 			//loadValueToPage();

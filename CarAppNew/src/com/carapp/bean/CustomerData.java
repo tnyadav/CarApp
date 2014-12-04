@@ -17,9 +17,24 @@ public class CustomerData {
 	private String Date;
 	private String Time;
 	private String cust_resonfor_visit ;
+	private String FleetSelection;
+	private String authNumber;
 	
 	//private String csdId;
 	
+	
+	public String getFleetSelection() {
+		return FleetSelection;
+	}
+	public String getAuthNumber() {
+		return authNumber;
+	}
+	public void setAuthNumber(String authNumber) {
+		this.authNumber = authNumber;
+	}
+	public void setFleetSelection(String fleetSelection) {
+		FleetSelection = fleetSelection;
+	}
 	public String getBranch() {
 		return Branch;
 	}

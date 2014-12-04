@@ -59,13 +59,12 @@ public class PartAssismentActivity extends BaseBroadcastReceiverActivity {
 			}
 			String sysdate = android.text.format.DateFormat.format("ddMMyyyy",
 					new java.util.Date()).toString();
-			/*
-			 * File file = new File(PdfInfo.path +
-			 * ((CarAppSession)getApplication
-			 * ()).getCustomerData().getRegistration() + "_" + filename + "_" +
-			 * sysdate + ".jpg");
-			 */
-			file = new File(PdfInfo.path + filename + "_" + sysdate + ".jpg");
+			
+			   file = new File(PdfInfo.path +
+			  ((CarAppSession)getApplication
+			  ()).getCustomerData().getRegistration() + "_" + filename + ".jpg");
+			 
+		//	file = new File(PdfInfo.path + filename + "_" + sysdate + ".jpg");
 			Uri outputFileUri = Uri.fromFile(file);
 			cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
 			if (outputFileUri != null) {

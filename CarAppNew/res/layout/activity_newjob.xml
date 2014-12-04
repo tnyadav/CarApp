@@ -32,11 +32,24 @@
             android:layout_marginTop="@dimen/layout_padding_medium"
            >
 
+            <Button
+                 android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/red_button"
+                android:onClick="clear"
+                android:text="Clear"
+                android:textColor="@color/background"
+                android:textSize="@dimen/lavel_size_header"
+                android:textStyle="bold"  />
+
             <EditText
                 android:id="@+id/car_no_plate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/layout_padding_medium"
+                 android:layout_marginLeft="@dimen/layout_padding_medium"
                 android:layout_weight="1"
                 android:background="@drawable/edittext"
                 android:singleLine="true"
@@ -49,7 +62,7 @@
                 android:id="@+id/check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                
                 android:background="@drawable/red_button"
                 android:onClick="check"
                 android:text="Check"

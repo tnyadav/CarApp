@@ -142,11 +142,12 @@ public class CaptureSignatureActivity extends BaseActivity {
 			FileOutputStream fos = null;
 			try {
 				fos = new FileOutputStream(new File(signaturepath));
+				returnedBitmap.compress(Bitmap.CompressFormat.PNG, 80, fos);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 
-			returnedBitmap.compress(Bitmap.CompressFormat.PNG, 95, fos);
+			
 
 		}
 
