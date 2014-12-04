@@ -23,6 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.carapp.bean.CarAppSession;
 import com.carapp.bean.CustomerData;
@@ -224,6 +225,7 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 		super.onPostExecute(result);
 		
 		dialog.dismiss();
+		Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 		try {
 			JSONObject jsonObject=new JSONObject(result);
 			if (jsonObject.optString("msg").equals("success")) {

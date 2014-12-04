@@ -206,7 +206,8 @@ public class JobDataCreateActivity extends BaseActivity {
 				
 				switch (currentStatus) {
 				case PDFCREATED:
-					new UpdateDataBase(context, "storeindb",
+					//test_action,storeindb
+					new UpdateDataBase(context, "test_action",
 							((CarAppSession) getApplication())).execute("");
 					break;
 				case DATABASEUPDATED:

@@ -119,7 +119,7 @@ public class CustomerDataActivity extends BaseBroadcastReceiverActivity {
 								}
 							}
 							spinerFleet.setSelection(selectedOption);
-							   if (!customerData.getFleetSelection().equals("")) {
+							   if (customerData.getFleetSelection()!=null&&!customerData.getFleetSelection().equals("")) {
 								   spinerFleet.setEnabled(false);
 							   }
 							
