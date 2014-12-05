@@ -17,8 +17,7 @@ public String getValue() {
 }
 @Override
 public String toString() {
-	return "PartAssisment [option=" + option + ", value=" + value
-			+ ", imagePath=" + imagePath + "]";
+	return  option + "-" + value;
 }
 public void setValue(String value) {
 	this.value = value;

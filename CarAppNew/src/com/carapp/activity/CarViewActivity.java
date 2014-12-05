@@ -2,6 +2,9 @@ package com.carapp.activity;
 
 import java.io.File;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,8 +17,10 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.carapp.bean.CarAppSession;
+import com.carapp.bean.JsonParser;
 import com.carapp.bean.WorkAssissment;
 import com.carapp.util.PdfInfo;
+import com.carapp.util.SharedPreferencesUtil;
 import com.example.carappnew.R;
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -52,9 +57,9 @@ public class CarViewActivity extends BaseBroadcastReceiverActivity {
 
 			public void onPageFinished(WebView view, String url) {
 				Log.e("intent value", "start");
-				if (PdfInfo.mode==PdfInfo.EXIT_MODE||PdfInfo.mode==PdfInfo.EDIT_MODE) {
+			//	if (PdfInfo.mode==PdfInfo.EXIT_MODE||PdfInfo.mode==PdfInfo.EDIT_MODE) {
 					loadValueToPage();
-				}
+			//	}
 
 			}
 		});
@@ -65,15 +70,30 @@ public class CarViewActivity extends BaseBroadcastReceiverActivity {
 			Log.e("intent value", ""+workAssissment);
 			if (PdfInfo.mode == PdfInfo.EXIT_MODE) {
 				//header.setText("WORK ASSESSMENT");
-				getActionBar().setTitle("WORK ASSESSMENT");
+				getActionBar().setTitle("Work Assissment");
 			}else {
-				getActionBar().setTitle("CAR ASSESSMENT");
+				getActionBar().setTitle("Car Assissment");
 			}
 			w.loadUrl("file:///android_asset/carapp.html");
 			//loadValueToPage();
 		} else {
-			w.loadUrl("file:///android_asset/car.html");
-			workAssissment =new WorkAssissment();
+			//w.loadUrl("file:///android_asset/car.html");\
+			//workAssissment =new WorkAssissment();
+		// ********testing*****
+			String json=SharedPreferencesUtil.getPreferences(context, "car", "");
+			try {
+				JsonParser jsonParser = new JsonParser(
+						context, new JSONObject(json));
+				((CarAppSession) getApplication())
+				.setWorkAssissment(jsonParser
+						.getWorkAssissment());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			workAssissment=((CarAppSession)getApplication()).getWorkAssissment();
+			w.loadUrl("file:///android_asset/carapp.html");
+		//********end test*****	
 			
 		}
 	}

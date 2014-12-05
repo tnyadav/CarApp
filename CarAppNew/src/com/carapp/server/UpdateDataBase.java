@@ -6,6 +6,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -88,122 +89,127 @@ public class UpdateDataBase extends AsyncTask<String, Integer, String> {
 		String responseData="";
 		//List<NameValuePair> paramList = new ArrayList<NameValuePair>();
 		try {
-		MultipartEntity paramList = new MultipartEntity();
-		paramList.addPart("action",new StringBody( action));
-		Log.e("action of updatedatabase", action);
-		paramList.addPart("branch",new StringBody( customerData.getBranch()));
-		paramList.addPart("salesperson",new StringBody(customerData.getSaleperson()));
-		paramList.addPart("customer",new StringBody(customerData.getCustomer()));
-		paramList.addPart("contact",new StringBody(customerData.getContactNo()));
-		paramList.addPart("address",new StringBody(customerData.getAddress()));
-		paramList.addPart("make",new StringBody( customerData.getMake()));
-		paramList.addPart("model",new StringBody( customerData.getModel()));
-		paramList.addPart("year",new StringBody( customerData.getYear()));
-		paramList.addPart("odometer",new StringBody(customerData.getOdomstrer()));
-		paramList.addPart("reg_plate_no",new StringBody(customerData.getRegistration()));
-		paramList.addPart("date",new StringBody( customerData.getDate()));
-		paramList.addPart("time",new StringBody( customerData.getTime()));
-        
-		paramList.addPart("company",new StringBody( customerData.getCompany()));
-		paramList.addPart("email",new StringBody( customerData.getEmail()));
+			 JSONObject paramList = new JSONObject();
+			
 		
-		paramList.addPart("cust_visit_reason",new StringBody(customerData.getCust_resonfor_visit()));
-		paramList.addPart("fleet_selected",new StringBody(customerData.getFleetSelection()));
-		paramList.addPart("auth_number",new StringBody(customerData.getAuthNumber()));
+		//MultipartEntity paramList = new MultipartEntity();
+		
+		paramList.put("action", action);
+		Log.e("action of updatedatabase", action);
+		paramList.put("branch", customerData.getBranch());
+		paramList.put("salesperson",customerData.getSaleperson());
+		paramList.put("customer",customerData.getCustomer());
+		paramList.put("contact",customerData.getContactNo());
+		paramList.put("address",customerData.getAddress());
+		paramList.put("make", customerData.getMake());
+		paramList.put("model", customerData.getModel());
+		paramList.put("year", customerData.getYear());
+		paramList.put("odometer",customerData.getOdomstrer());
+		paramList.put("reg_plate_no",customerData.getRegistration());
+		paramList.put("date", customerData.getDate());
+		paramList.put("time", customerData.getTime());
+        
+		paramList.put("company", customerData.getCompany());
+		paramList.put("email", customerData.getEmail());
+		
+		paramList.put("cust_visit_reason",customerData.getCust_resonfor_visit());
+		paramList.put("fleet_selected",customerData.getFleetSelection());
+		paramList.put("auth_number",customerData.getAuthNumber());
 		String parts_assessment="";
 		if (partAssisments!=null) {
+			
 			 parts_assessment= TextUtils.join(",",partAssisments);
 		}
 		
-		paramList.addPart("parts_assessment",new StringBody(parts_assessment));
+		paramList.put("parts_assessment",parts_assessment);
 		
 
-		paramList.addPart("tyre_condition_lf",new StringBody(workAssissment.getTyer_condition_lf()));
-		paramList.addPart("tyre_condition_lb",new StringBody(workAssissment.getTyer_condition_lb()));
-		paramList.addPart("tyre_condition_rf",new StringBody(workAssissment.getTyer_condition_rf()));
-		paramList.addPart("tyre_condition_rb",new StringBody(workAssissment.getTyer_condition_rb()));
+		paramList.put("tyre_condition_lf",workAssissment.getTyer_condition_lf());
+		paramList.put("tyre_condition_lb",workAssissment.getTyer_condition_lb());
+		paramList.put("tyre_condition_rf",workAssissment.getTyer_condition_rf());
+		paramList.put("tyre_condition_rb",workAssissment.getTyer_condition_rb());
 
-		paramList.addPart("tyre_size_lf",new StringBody(workAssissment.getTyre_size_lf()));
-		paramList.addPart("tyre_size_lb",new StringBody(workAssissment.getTyre_size_lb()));
-		paramList.addPart("tyre_size_rf",new StringBody(workAssissment.getTyre_size_rf()));
-		paramList.addPart("tyre_size_rb",new StringBody(workAssissment.getTyre_size_rb()));
+		paramList.put("tyre_size_lf",workAssissment.getTyre_size_lf());
+		paramList.put("tyre_size_lb",workAssissment.getTyre_size_lb());
+		paramList.put("tyre_size_rf",workAssissment.getTyre_size_rf());
+		paramList.put("tyre_size_rb",workAssissment.getTyre_size_rb());
 
-		paramList.addPart("tyre_depth_lf",new StringBody(workAssissment.getTyre_depth_lf()));
-		paramList.addPart("tyre_depth_lb",new StringBody(workAssissment.getTyre_depth_lb()));
-		paramList.addPart("tyre_depth_rf",new StringBody(workAssissment.getTyre_depth_rf()));
-		paramList.addPart("tyre_depth_rb",new StringBody(workAssissment.getTyre_depth_rb()));
+		paramList.put("tyre_depth_lf",workAssissment.getTyre_depth_lf());
+		paramList.put("tyre_depth_lb",workAssissment.getTyre_depth_lb());
+		paramList.put("tyre_depth_rf",workAssissment.getTyre_depth_rf());
+		paramList.put("tyre_depth_rb",workAssissment.getTyre_depth_rb());
 
-		paramList.addPart("brake_pad_lf",new StringBody(workAssissment.getBrake_pad_lf()));
-		paramList.addPart("brake_pad_lb",new StringBody(workAssissment.getBrake_pad_lb()));
-		paramList.addPart("brake_pad_rf",new StringBody(workAssissment.getBrake_pad_rf()));
-		paramList.addPart("brake_pad_rb",new StringBody(workAssissment.getBrake_pad_rb()));
+		paramList.put("brake_pad_lf",workAssissment.getBrake_pad_lf());
+		paramList.put("brake_pad_lb",workAssissment.getBrake_pad_lb());
+		paramList.put("brake_pad_rf",workAssissment.getBrake_pad_rf());
+		paramList.put("brake_pad_rb",workAssissment.getBrake_pad_rb());
 
-		paramList.addPart("brake_disk_lf",new StringBody(workAssissment.getBrake_disk_lf()));
-		paramList.addPart("brake_disk_lb",new StringBody(workAssissment.getBrake_disk_lb()));
-		paramList.addPart("brake_disk_rf",new StringBody(workAssissment.getBrake_disk_rf()));
-		paramList.addPart("brake_disk_rb",new StringBody(workAssissment.getBrake_disk_rb()));
+		paramList.put("brake_disk_lf",workAssissment.getBrake_disk_lf());
+		paramList.put("brake_disk_lb",workAssissment.getBrake_disk_lb());
+		paramList.put("brake_disk_rf",workAssissment.getBrake_disk_rf());
+		paramList.put("brake_disk_rb",workAssissment.getBrake_disk_rb());
 
-		paramList.addPart("shocker_lf",new StringBody(workAssissment.getShocker_lf()));
-		paramList.addPart("shocker_lb",new StringBody(workAssissment.getShocker_lb()));
-		paramList.addPart("shocker_rf",new StringBody(workAssissment.getShocker_rf()));
-		paramList.addPart("shocker_rb",new StringBody(workAssissment.getShocker_rb()));
+		paramList.put("shocker_lf",workAssissment.getShocker_lf());
+		paramList.put("shocker_lb",workAssissment.getShocker_lb());
+		paramList.put("shocker_rf",workAssissment.getShocker_rf());
+		paramList.put("shocker_rb",workAssissment.getShocker_rb());
 
-		paramList.addPart("wheel_lf",new StringBody(workAssissment.getWheel_lf()));
-		paramList.addPart("wheel_lb",new StringBody(workAssissment.getWheel_lb()));
-		paramList.addPart("wheel_rf",new StringBody(workAssissment.getWheel_rf()));
-		paramList.addPart("wheel_rb",new StringBody(workAssissment.getWheel_rb()));
+		paramList.put("wheel_lf",workAssissment.getWheel_lf());
+		paramList.put("wheel_lb",workAssissment.getWheel_lb());
+		paramList.put("wheel_rf",workAssissment.getWheel_rf());
+		paramList.put("wheel_rb",workAssissment.getWheel_rb());
 
-		paramList.addPart("immoblizer",new StringBody(workAssissment.getImmoblizer_f()));
-		paramList.addPart("battery",new StringBody(workAssissment.getBattery_f()));
+		paramList.put("immoblizer",workAssissment.getImmoblizer_f());
+		paramList.put("battery",workAssissment.getBattery_f());
 
-		paramList.addPart("spare_wheel",new StringBody(workAssissment.getSpare_wheel_b()));
-		paramList.addPart("lock_nut",new StringBody(workAssissment.getLock_nut_b()));
+		paramList.put("spare_wheel",workAssissment.getSpare_wheel_b());
+		paramList.put("lock_nut",workAssissment.getLock_nut_b());
 
-		paramList.addPart("ph_damage_lf",new StringBody(workAssissment.getPhysical_damage_lf()));
-		paramList.addPart("ph_damage_lb",new StringBody(workAssissment.getPhysical_damage_lb()));
-		paramList.addPart("ph_damage_rf",new StringBody(workAssissment.getPhysical_damage_rf()));
-		paramList.addPart("ph_damage_rb",new StringBody(workAssissment.getPhysical_damage_rb()));
-		paramList.addPart("ir_by_ph_damage",new StringBody(workAssissment.getPhysical_damage_f()));
-		paramList.addPart("sw_ln_ph_damage",new StringBody(workAssissment.getPhysical_damage_b()));
+		paramList.put("ph_damage_lf",workAssissment.getPhysical_damage_lf());
+		paramList.put("ph_damage_lb",workAssissment.getPhysical_damage_lb());
+		paramList.put("ph_damage_rf",workAssissment.getPhysical_damage_rf());
+		paramList.put("ph_damage_rb",workAssissment.getPhysical_damage_rb());
+		paramList.put("ir_by_ph_damage",workAssissment.getPhysical_damage_f());
+		paramList.put("sw_ln_ph_damage",workAssissment.getPhysical_damage_b());
 
 		// ***********************************************************************
-		paramList.addPart("display",new StringBody(jobData.getDiplay()));
+		paramList.put("display",jobData.getDiplay());
 		//************************************************************************
-		paramList.addPart("dealer_recommendations",new StringBody(jobData.getDealer_recommendations()));
-		paramList.addPart("cust_approved_work",new StringBody(jobData.getCust_approved_work()));
+		paramList.put("dealer_recommendations",jobData.getDealer_recommendations());
+		paramList.put("cust_approved_work",jobData.getCust_approved_work());
 
-		paramList.addPart("radiodata",new StringBody(jobData.getRadiodata()));
+		paramList.put("radiodata",jobData.getRadiodata());
 
-		paramList.addPart("quotation1",new StringBody(jobData.getQuotation1()));
-		paramList.addPart("quotation2",new StringBody(jobData.getQuotation2()));
+		paramList.put("quotation1",jobData.getQuotation1());
+		paramList.put("quotation2",jobData.getQuotation2());
     
-	    paramList.addPart("csd_id",new StringBody(PdfInfo.csdId));
-	    paramList.addPart("observations",new StringBody(jobData.getObservations()));
+	    paramList.put("csd_id",PdfInfo.csdId);
+	    paramList.put("observations",jobData.getObservations());
 		
 		
 		if (PdfInfo.mode==PdfInfo.EXIT_MODE) {
 			
 			
-			paramList.addPart("wheel_nuts_torqued",new StringBody(jobData.getWheel_nuts_torqued()));
-			paramList.addPart("wheels_cleaned",new StringBody(jobData.getWheels_cleaned()));
-			paramList.addPart("wheels_balanced",new StringBody(jobData.getWheels_balanced()));
-			paramList.addPart("alignment_done",new StringBody(jobData.getAlignment_done()));
-			paramList.addPart("tyre_pressure_front",new StringBody(jobData.getTyre_pressure_front()));
-			paramList.addPart("tyre_pressure_back",new StringBody(jobData.getTyre_pressure_back()));
-			paramList.addPart("tyres_polished",new StringBody(jobData.getTyres_polished()));
-			paramList.addPart("lock_nut_returned",new StringBody(jobData.getLock_nut_returned()));
-			paramList.addPart("car_tested_by_salesperson",new StringBody(jobData.getCar_tested_by_salesperson()));
-			paramList.addPart("work_inspected_by_salesperson",new StringBody(jobData.getWork_inspected_by_salesperson()));
-			paramList.addPart("work_approved_by_salesperson",new StringBody(jobData.getWork_approved_by_salesperson()));
-			paramList.addPart("customer_satisfied",new StringBody(jobData.getCustomer_satisfied()));
+			paramList.put("wheel_nuts_torqued",jobData.getWheel_nuts_torqued());
+			paramList.put("wheels_cleaned",jobData.getWheels_cleaned());
+			paramList.put("wheels_balanced",jobData.getWheels_balanced());
+			paramList.put("alignment_done",jobData.getAlignment_done());
+			paramList.put("tyre_pressure_front",jobData.getTyre_pressure_front());
+			paramList.put("tyre_pressure_back",jobData.getTyre_pressure_back());
+			paramList.put("tyres_polished",jobData.getTyres_polished());
+			paramList.put("lock_nut_returned",jobData.getLock_nut_returned());
+			paramList.put("car_tested_by_salesperson",jobData.getCar_tested_by_salesperson());
+			paramList.put("work_inspected_by_salesperson",jobData.getWork_inspected_by_salesperson());
+			paramList.put("work_approved_by_salesperson",jobData.getWork_approved_by_salesperson());
+			paramList.put("customer_satisfied",jobData.getCustomer_satisfied());
 
 		}
 		
 		
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(PdfInfo.newjobcard);
-
-			httppost.setEntity(paramList);
+			StringEntity se = new StringEntity(paramList.toString());
+			httppost.setEntity(se);
 			HttpResponse response;
 			response = httpclient.execute(httppost);
 			HttpEntity getresponse = response.getEntity();

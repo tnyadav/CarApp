@@ -38,6 +38,7 @@ import com.carapp.login.LoginTempActivity;
 import com.carapp.server.AsyncWebServiceProcessingTask;
 import com.carapp.util.AsynckCallback;
 import com.carapp.util.PdfInfo;
+import com.carapp.util.SharedPreferencesUtil;
 import com.carapp.util.UIUtils;
 import com.example.carappnew.R;
 import com.example.tnutil.Util;
@@ -319,6 +320,7 @@ protected void onResume() {
 									if (status.equalsIgnoreCase("success"))
 
 									{
+										SharedPreferencesUtil.savePreferences(context, "car", result);
 										((CarAppSession) getApplication())
 												.removeSavedData();
 										JsonParser jsonParser = new JsonParser(

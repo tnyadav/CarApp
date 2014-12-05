@@ -202,12 +202,12 @@ public class JobDataCreateActivity extends BaseActivity {
 				
 				status currentStatus = ((CarAppSession) getApplication()).getCurrentUploadFileStatus();
 				Log.e("status", ""+currentStatus);
-				Toast.makeText(context, ""+currentStatus, 1).show();
+			//	Toast.makeText(context, ""+currentStatus, 1).show();
 				
 				switch (currentStatus) {
 				case PDFCREATED:
 					//test_action,storeindb
-					new UpdateDataBase(context, "test_action",
+					new UpdateDataBase(context, "storeindb",
 							((CarAppSession) getApplication())).execute("");
 					break;
 				case DATABASEUPDATED:
@@ -249,7 +249,7 @@ public class JobDataCreateActivity extends BaseActivity {
 							((CarAppSession)getApplication()).setJobData(jobData);
 							Toast.makeText(context, "done", 3).show();
 							
-							
+							// test
 							new CreatePdf(context, "storeindb",((CarAppSession)getApplication())).execute("");
 							
 						

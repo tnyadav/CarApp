@@ -34,7 +34,8 @@ public class PartAssismentActivity extends BaseBroadcastReceiverActivity {
 	private LinearLayout container_partassisment;
 	private LayoutInflater layoutInflater;
 	private int index=0;
-	File file;
+	private File file;
+	private boolean imageTeken=false;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,6 +89,7 @@ public class PartAssismentActivity extends BaseBroadcastReceiverActivity {
 			newPhoto.setVisibility(View.VISIBLE);
 			if (file!=null) {
 				imageView.setImageBitmap(getPreview(file));
+				imageTeken=true;
 			}
 			final RadioGroup radioGroup=(RadioGroup)rowView.findViewById(R.id.radioGroupWorkAssisment);
 			
@@ -110,7 +112,7 @@ public class PartAssismentActivity extends BaseBroadcastReceiverActivity {
 					
 					PartAssisment partAssisment=new PartAssisment();
 					partAssisment.setValue(radiovalue);
-					partAssisment.setOption("Option"+index);
+					partAssisment.setOption("Option "+index);
 					partAssisment.setImagePath(file.getAbsolutePath());
 					partAssisments.add(partAssisment);
 					carAppSession.setPartAssisments(partAssisments);
@@ -134,6 +136,27 @@ public class PartAssismentActivity extends BaseBroadcastReceiverActivity {
 		switch (item.getItemId()) {
 		
 		case R.id.action_done:
+			if (imageTeken) {
+				CarAppSession carAppSession=(CarAppSession) getApplication();
+				List<PartAssisment> partAssisments=carAppSession.getPartAssisments();
+				if (partAssisments==null) {
+					partAssisments=new ArrayList<PartAssisment>();
+				}
+				
+				final View rowView=container_partassisment.getChildAt(index);
+				final RadioGroup radioGroup=(RadioGroup)rowView.findViewById(R.id.radioGroupWorkAssisment);
+				RadioButton radioButton=(RadioButton)rowView.findViewById(radioGroup.getCheckedRadioButtonId());
+				String radiovalue=radioButton.getText().toString();
+			
+				PartAssisment partAssisment=new PartAssisment();
+				partAssisment.setValue(radiovalue);
+				partAssisment.setOption("Option "+index);
+				partAssisment.setImagePath(file.getAbsolutePath());
+				partAssisments.add(partAssisment);
+				carAppSession.setPartAssisments(partAssisments);
+			}
+		
+			
 			
 			if (PdfInfo.mode==PdfInfo.EXIT_MODE) {
 			
