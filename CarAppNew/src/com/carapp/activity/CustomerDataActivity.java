@@ -310,7 +310,7 @@ OnItemSelectedListener onItemSelectedListener = new OnItemSelectedListener() {
 			Log.e("lenghths", tempData.length + " "+customerData.getCust_resonfor_visit());
 			for (int i = 0; i < tempData.length; i++) {
 
-				if (!isStringAdded(tempData[i], datacust_reson_for_visit)) {
+				if (!tempData[i].equals("")&&!isStringAdded(tempData[i], datacust_reson_for_visit)) {
 
 					datacust_reson_for_visit.add(tempData[i]);
 					inflateEditRow(tempData[i],

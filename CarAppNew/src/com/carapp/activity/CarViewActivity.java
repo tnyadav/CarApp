@@ -77,10 +77,10 @@ public class CarViewActivity extends BaseBroadcastReceiverActivity {
 			w.loadUrl("file:///android_asset/carapp.html");
 			//loadValueToPage();
 		} else {
-			//w.loadUrl("file:///android_asset/car.html");\
-			//workAssissment =new WorkAssissment();
+			w.loadUrl("file:///android_asset/car.html");
+			workAssissment =new WorkAssissment();
 		// ********testing*****
-			String json=SharedPreferencesUtil.getPreferences(context, "car", "");
+			/*String json=SharedPreferencesUtil.getPreferences(context, "car", "");
 			try {
 				JsonParser jsonParser = new JsonParser(
 						context, new JSONObject(json));
@@ -92,7 +92,7 @@ public class CarViewActivity extends BaseBroadcastReceiverActivity {
 				e.printStackTrace();
 			}
 			workAssissment=((CarAppSession)getApplication()).getWorkAssissment();
-			w.loadUrl("file:///android_asset/carapp.html");
+			w.loadUrl("file:///android_asset/carapp.html");*/
 		//********end test*****	
 			
 		}

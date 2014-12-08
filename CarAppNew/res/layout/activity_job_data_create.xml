@@ -247,7 +247,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
-                        android:orientation="vertical" >
+                        android:orientation="horizontal" >
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -458,6 +458,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
+                        android:gravity="center"
                         android:orientation="horizontal" >
 
                         <LinearLayout
@@ -473,7 +474,7 @@
                                 android:src="@drawable/signaturenotfound" />
                         </LinearLayout>
 
-                        <Button
+                        <!-- <Button
                             android:id="@+id/customer_sig"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -484,7 +485,7 @@
                             android:text="Signature"
                             android:textColor="@color/background"
                             android:textSize="@dimen/lavel_size_header"
-                            android:textStyle="bold" />
+                            android:textStyle="bold" /> -->
                     </LinearLayout>
                 </LinearLayout>
 
@@ -506,13 +507,14 @@
                     android:id="@+id/salepersonSignaturContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="vertical" >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:orientation="horizontal" >
 
@@ -529,7 +531,7 @@
                                 android:src="@drawable/signaturenotfound" />
                         </LinearLayout>
 
-                        <Button
+                        <!-- <Button
                             android:id="@+id/saleperson_sig"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -539,7 +541,7 @@
                             android:drawableLeft="@drawable/capturesignatureicon"
                             android:text="Signature"
                             android:textColor="@color/background"
-                            android:textSize="@dimen/lavel_size_header" />
+                            android:textSize="@dimen/lavel_size_header" /> -->
                     </LinearLayout>
                 </LinearLayout>
 

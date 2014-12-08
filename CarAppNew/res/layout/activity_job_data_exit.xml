@@ -801,7 +801,7 @@
                                 android:src="@drawable/signaturenotfound" />
                         </LinearLayout>
 
-                        <Button
+                        <!-- <Button
                             android:id="@+id/customer_sig"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -812,7 +812,7 @@
                             android:text="Signature"
                             android:textColor="@color/background"
                             android:textSize="@dimen/lavel_size_header"
-                            android:textStyle="bold" />
+                            android:textStyle="bold" /> -->
                     </LinearLayout>
                 </LinearLayout>
 
@@ -871,7 +871,7 @@
                                 android:src="@drawable/signaturenotfound" />
                         </LinearLayout>
 
-                        <Button
+                      <!--   <Button
                             android:id="@+id/saleperson_sig"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -881,7 +881,7 @@
                             android:drawableLeft="@drawable/capturesignatureicon"
                             android:text="Signature"
                             android:textColor="@color/background"
-                            android:textSize="@dimen/lavel_size_header" />
+                            android:textSize="@dimen/lavel_size_header" /> -->
                     </LinearLayout>
                 </LinearLayout>
 

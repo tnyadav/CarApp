@@ -494,7 +494,7 @@ public class JobDataExitActivity extends BaseActivity {
 			Log.e("lenghths", cust_reson_for_visit.length + " ");
 			for (int i = 0; i < cust_reson_for_visit.length; i++) {
 
-				if (!isStringAdded(cust_reson_for_visit[i], datacust_approved_work)) {
+				if (!cust_reson_for_visit[i].equals("")&&!isStringAdded(cust_reson_for_visit[i], datacust_approved_work)) {
 
 					datacust_approved_work.add(cust_reson_for_visit[i]);
 					inflateEditRow(cust_reson_for_visit[i],

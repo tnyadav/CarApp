@@ -320,7 +320,7 @@ protected void onResume() {
 									if (status.equalsIgnoreCase("success"))
 
 									{
-										SharedPreferencesUtil.savePreferences(context, "car", result);
+										//SharedPreferencesUtil.savePreferences(context, "car", result);
 										((CarAppSession) getApplication())
 												.removeSavedData();
 										JsonParser jsonParser = new JsonParser(

@@ -371,7 +371,7 @@ public class JobDataEditActivity extends BaseActivity {
 		Log.e("lenghths", tempData.length + " ");
 		for (int i = 0; i < tempData.length; i++) {
 
-			if (!isStringAdded(tempData[i], datacust_approved_work)) {
+			if (!tempData[i].equals("")&&!isStringAdded(tempData[i], datacust_approved_work)) {
 
 				datacust_approved_work.add(tempData[i]);
 				inflateEditRow(tempData[i],
@@ -401,7 +401,7 @@ public class JobDataEditActivity extends BaseActivity {
 		Log.e("lenghths", tempData.length + " ");
 		for (int i = 0; i < tempData.length; i++) {
 
-			if (!isStringAdded(tempData[i], datadealer_recomendation)) {
+			if (!tempData[i].equals("")&&!isStringAdded(tempData[i], datadealer_recomendation)) {
 
 				datacust_approved_work.add(tempData[i]);
 				inflateEditRow(tempData[i],
