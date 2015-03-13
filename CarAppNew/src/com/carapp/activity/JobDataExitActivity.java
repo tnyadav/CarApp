@@ -36,7 +36,7 @@ public class JobDataExitActivity extends BaseActivity {
 
 	private Button btcust_approved_work;
 
-	private Button btsubmit, customer_signature, saleperson_signature;
+	private Button btsubmit/*, customer_signature, saleperson_signature*/;
 	private ImageView img_cust, img_sal;
 	private LinearLayout layoutlinear_cust_approved_work;
 
@@ -90,14 +90,17 @@ public class JobDataExitActivity extends BaseActivity {
 		tyre_pressure_front = (EditText) findViewById(R.id.et_tyrepressurefront);
 		tyre_pressure_back = (EditText) findViewById(R.id.et_tyrepressureback);
 
-		customer_signature = (Button) findViewById(R.id.customer_sig);
+	/*	customer_signature = (Button) findViewById(R.id.customer_sig);
 		customer_signature.setOnClickListener(listener);
 
 		saleperson_signature = (Button) findViewById(R.id.saleperson_sig);
-		saleperson_signature.setOnClickListener(listener);
+		saleperson_signature.setOnClickListener(listener);*/
+		
 		img_cust = (ImageView) findViewById(R.id.image_cust);
 		img_sal = (ImageView) findViewById(R.id.image_sale);
-
+		img_cust.setOnClickListener(listener);
+		img_sal.setOnClickListener(listener);
+		
 		layoutlinear_cust_approved_work = (LinearLayout) findViewById(R.id.linear_cust_approved_work);
 
 		unableToAssist = (RadioButton) findViewById(R.id.unable_to_assist);
@@ -148,13 +151,13 @@ public class JobDataExitActivity extends BaseActivity {
 				i11.putExtra("listname", 2);
 				startActivityForResult(i11, 1003);
 				break;
-			case R.id.customer_sig:
+			case R.id.image_cust:
 				Intent i111 = new Intent(getApplicationContext(),
 						CaptureSignatureActivity.class);
 				i111.putExtra("For", "customer");
 				startActivityForResult(i111, 1004);
 				break;
-			case R.id.saleperson_sig:
+			case R.id.image_sale:
 				Intent i1111 = new Intent(getApplicationContext(),
 						CaptureSignatureActivity.class);
 				i1111.putExtra("For", "saleperson");

@@ -16,7 +16,9 @@ public class PdfInfo {
 	public static final int EXIT_MODE = 2;
 	public static final int CHECKOUT_MODE = 3;
 
-	public static String baseUrl = "http://techsoftlabs.com/carapp/mobile_webservices/";
+	//public static String baseUrl = "http://techsoftlabs.com/carapp/mobile_webservices/";
+	
+	public static String baseUrl = "http://techsoftlabs.com/taskdev/carapp/mobile_webservices/";
 	/*
 	 * public static String dateaddress =
 	 * "http://carapp.dyndns.org/carapp/mobile_webservices/date.php"; public
@@ -26,7 +28,7 @@ public class PdfInfo {
 	public static String dateaddress = baseUrl + "date.php";
 	public static String dayaddress = baseUrl + "day.php";
 	public static String newjobcard = baseUrl + "mobile_webservice.php";
-	public static final String RegistrationList = baseUrl + "getlist.php";
+//	public static final String RegistrationList = baseUrl + "getlist.php";
 	public static final String getfleet = baseUrl + "get_fleets.php";
 	// public static final String UploadFiles =
 	// "http://techsoftlabs.com/carapp/mobile_webservices/carapp_uploadfiles.php";
